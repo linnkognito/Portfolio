@@ -11,7 +11,12 @@ import Section from './components/Section';
 // import Statusbar from './components/Statusbar';
 // import CustomH5 from './components/H5';
 
-// import profilePicture from '../public/img/pp.jpg';
+// import Button from '@mui/material/Button';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   return (

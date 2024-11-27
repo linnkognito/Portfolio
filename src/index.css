@@ -1,10 +1,13 @@
-/*___F O N T S_____________________________*/
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/*___F O N T S  &  I C O N S_______________*/
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*___B A S E_______________________________*/
 @layer base {
   body {
     @apply bg-midnight text-offwhite font-sans font-medium tracking-wide leading-6 bg-noise px-8;
@@ -44,6 +47,7 @@
   }
 }
 
+/*___C O M P O N E N T S___________________*/
 @layer components {
   .actionbar {
     @apply font-sans uppercase tracking-widest;
@@ -56,6 +60,7 @@
   }
 }
 
+/*___U T I L I T I E S_____________________*/
 @layer utilities {
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.3' numOctaves='2' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.05'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' fill='black'/%3E%3C/svg%3E");

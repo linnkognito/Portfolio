@@ -1,6 +1,6 @@
 function Technologies() {
   return (
-    <div className='w-full p-2'>
+    <div className='w-full'>
       <h2>Technologies</h2>
     </div>
   );

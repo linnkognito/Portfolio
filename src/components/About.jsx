@@ -23,7 +23,7 @@ function About() {
         </BorderCorners>
 
         {/* <ContactInfo /> */}
-        <Wrapper cls='w-full max-w-screen-md flex flex-col gap-2 mt-3'>
+        <Wrapper cls='w-full h-auto flex flex-col gap-2 mt-3'>
           <ContactInfo />
         </Wrapper>
       </Content>

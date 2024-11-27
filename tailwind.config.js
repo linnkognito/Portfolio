@@ -17,7 +17,7 @@ module.exports = {
         mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {
-        fluid: 'clamp(0.5rem, 1vw, 1.05rem)',
+        fluid: 'clamp(0.85rem, 1vw, 1.05rem)',
       },
 
       boxShadow: {
