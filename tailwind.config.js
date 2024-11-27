@@ -16,6 +16,9 @@ module.exports = {
         sans: ['Rajdhani', 'Helvetica', 'Arial', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
       },
+      fontSize: {
+        fluid: 'clamp(0.5rem, 1vw, 1.05rem)',
+      },
 
       boxShadow: {
         glow: '0 0 5px #bdbfc3',
@@ -37,6 +40,9 @@ module.exports = {
         },
         '.text-shadow-glow': {
           textShadow: '0 0 2px #bdbfc3',
+        },
+        '.text-shadow-shine': {
+          textShadow: '0 0 5px #bdbfc3',
         },
       });
     },

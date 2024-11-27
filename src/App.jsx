@@ -6,7 +6,6 @@ import Section from './components/Section';
 // import Container from './components/Container';
 // import Wrapper from './components/Wrapper';
 // import ActionButtons from './components/ActionButtons';
-// import BorderCorners from './components/BorderCorners';
 // import Button from './components/Button';
 // import Stats from './components/Stats';
 // import Statusbar from './components/Statusbar';
@@ -28,15 +27,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Button>Download</Button> */
-}
-{
-  /* <BorderCorners width='w-2/6'>
-        <img src='/img/pp.jpg' alt='Profile picture' className='w-full' />
-      </BorderCorners> */
-}
-{
-  /* <Wrapper cls='w-2/4'> */
-}

@@ -1,8 +1,8 @@
-function CustomH5({ title }) {
+function CustomH5({ children, cls = '' }) {
   return (
     <h5>
-      <span className='pr-1 text'>[</span>
-      <span>{title}</span>
+      <span className={`pr-1 ${cls}`}>[</span>
+      <span>{children}</span>
       <span className='pl-1'>]</span>
     </h5>
   );
