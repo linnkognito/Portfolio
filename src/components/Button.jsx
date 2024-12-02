@@ -1,7 +1,7 @@
-function Button({ children, width = 'w-fit' }) {
+function Button({ children, width = 'w-fit', height = 'h-fit' }) {
   return (
     <button
-      className={`bg-dove-op ${width} px-4 rounded hover:drop-shadow-btn`}
+      className={`bg-dove-op ${width} ${height} px-4 rounded hover:drop-shadow-btn`}
     >
       {children}
     </button>

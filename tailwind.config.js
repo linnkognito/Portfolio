@@ -24,6 +24,7 @@ module.exports = {
         glow: '0 0 5px #bdbfc3',
         subtle: '0 0 5px rgba(136, 141, 158, 1)',
         'subtle-sm': '0 0 3px rgba(136, 141, 158, 1)',
+        dark: '0 0 5px #0c0c13',
       },
       dropShadow: {
         glow: '0 0 2px #bdbfc3',
