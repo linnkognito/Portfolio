@@ -5,7 +5,7 @@ import Technologies from './Technologies';
 
 function ProfileContainer() {
   return (
-    <div className='flex flex-col gap-4 w-2/3 min-w-2/3 max-w-2/3 p-4 shadow-subtle-sm rounded'>
+    <div className='flex flex-col gap-6 w-10/12 min-w-2/3 max-w-2/3 p-4 shadow-subtle-sm rounded'>
       <Wrapper cls='flex gap-4'>
         <About />
         <Info />

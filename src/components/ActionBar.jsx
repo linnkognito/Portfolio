@@ -1,6 +1,6 @@
-function ActionBar({ children, title = '', cls = '' }) {
+function ActionBar({ children, style = 'h2', title = '', cls = '' }) {
   return (
-    <div className={`actionbar flex justify-between ${cls}`}>
+    <div className={`${style} ${cls} w-full flex justify-between py-0`}>
       {title}
       {children}
     </div>
@@ -8,11 +8,3 @@ function ActionBar({ children, title = '', cls = '' }) {
 }
 
 export default ActionBar;
-
-// <ActionBar cls='actionbar-h2' title='Actionbar h2'>
-//   <ActionButtons txtL='Left' txtR='Right' />
-// </ActionBar>
-// <br />
-// <ActionBar cls='actionbar-h3' title='Actionbar h3'>
-//   <ActionButtons txtL='Left' txtR='Right' />
-// </ActionBar>

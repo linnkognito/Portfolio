@@ -1,7 +1,7 @@
 function BorderCorners({
   children,
   width = 'w-fit',
-  padding = 'p-3',
+  padding = 'p-5',
   borderColor = 'border-ice',
   cornerH = 'h-8',
   cornerW = 'w-8',

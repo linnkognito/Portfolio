@@ -14,4 +14,11 @@ export default defineConfig({
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
+
+  // Disables browser warning overlay //
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
 });

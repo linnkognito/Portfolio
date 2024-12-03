@@ -36,7 +36,7 @@
     @apply bg-dove-op pl-4 bg-noise font-semibold text-lg rounded-t;
   }
   h3 {
-    @apply pl-4 font-semibold border-b;
+    @apply py-1 pl-4 font-semibold border-b;
   }
   h4 {
     @apply font-semibold bg-dove-op bg-noise w-fit px-4 rounded-t;
@@ -52,7 +52,7 @@
     @apply font-sans uppercase tracking-widest;
   }
   .actionbar-h2 {
-    @apply bg-dove-op pl-4 bg-noise font-semibold text-lg text-shadow-glow rounded-t;
+    @apply bg-dove-op pl-4 bg-noise font-semibold text-lg text-shadow-glow rounded-t uppercase;
   }
   .actionbar-h3 {
     @apply pl-4 font-semibold text-shadow-glow border-b;

@@ -13,7 +13,7 @@ function Stats() {
     <Wrapper cls='flex flex-col gap-2 w-full'>
       {/* Stats */}
       <Content cls='rounded shadow-subtle' bg='bg-steel' padding='pb-2'>
-        <h3 className='mb-2  py-1'>Stats</h3>
+        <h3 className='mb-2'>Stats</h3>
 
         {/* Statusbar + lables */}
         {stats.map((stat) => (
@@ -23,7 +23,7 @@ function Stats() {
           // >
           <div
             key={stat.id}
-            className='grid grid-cols-[1fr_2fr_1fr] items-center w-full max-w-full overflow-hidden'
+            className='grid grid-cols-[1fr_2fr_1fr] items-center w-full max-w-full overflow-hidden text-sm'
           >
             {/* Left text */}
             <span className='px-4 py-2 font-semibold text-shadow-subtle uppercase text-fluid'>
