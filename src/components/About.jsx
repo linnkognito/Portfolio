@@ -1,5 +1,5 @@
 import BorderCorners from './BorderCorners';
-import ContactInfo from './ContactInfo';
+import ContactDetails from './ContactDetails';
 import Content from './Content';
 
 import Wrapper from './Wrapper';
@@ -7,7 +7,7 @@ import Wrapper from './Wrapper';
 function About() {
   return (
     // Wrapper //
-    <Wrapper cls='w-1/2 min-w-1/2 max-w-1/2 rounded-t shadow-subtle-sm bg-steel bg-noise'>
+    <Wrapper cls='w-1/2 min-w-1/2 max-w-1/2 rounded shadow-subtle-sm bg-steel bg-noise'>
       {/* Heading */}
       <h2>About</h2>
 
@@ -19,12 +19,16 @@ function About() {
       >
         {/* Image */}
         <BorderCorners>
-          <img src='/img/pp.jpg' alt='Profile picture' className='w-full' />
+          <img
+            src='/img/pp.jpg'
+            alt='Profile picture'
+            className='w-full rounded shadow-subtle'
+          />
         </BorderCorners>
 
-        {/* <ContactInfo /> */}
+        {/* <ContactDetails /> */}
         <Wrapper cls='w-full h-auto flex flex-col gap-2 mt-3'>
-          <ContactInfo />
+          <ContactDetails />
         </Wrapper>
       </Content>
     </Wrapper>

@@ -59,7 +59,6 @@ function ContactDetails() {
           </span>
 
           {/* V a l u e */}
-
           {item.copy ? (
             <CustomTooltip tooltipOpen={tooltipOpen}>
               <span
