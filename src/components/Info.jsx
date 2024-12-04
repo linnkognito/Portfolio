@@ -9,7 +9,11 @@ function Info() {
     <div className='flex flex-col gap-6 items-center w-1/2 min-w-1/2 max-w-1/2 h-full p-6 rounded shadow-subtle-sm bg-steel bg-noise'>
       <Stats />
       <Map />
-      <ActionBar title='Download Resume' style='actionbar-h2' cls='rounded'>
+      <ActionBar
+        title='Download Resume'
+        style='actionbar-h2'
+        cls='rounded shadow-dark'
+      >
         <div>
           <ActionButton pos='left'>.doc</ActionButton>
           <ActionButton pos='right'>.pdf</ActionButton>

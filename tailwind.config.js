@@ -11,6 +11,8 @@ module.exports = {
         'dove-op': 'rgba(136, 141, 158, 0.6)',
         offwhite: '#d9d6e0',
         ice: '#bdbfc3',
+        lightblue: '#b4c7db',
+        'lightblue-op': 'rgba(180, 199, 219, 0.6)',
       },
       fontFamily: {
         sans: ['Rajdhani', 'Helvetica', 'Arial', 'sans-serif'],
@@ -24,7 +26,7 @@ module.exports = {
         glow: '0 0 5px #bdbfc3',
         subtle: '0 0 5px rgba(136, 141, 158, 1)',
         'subtle-sm': '0 0 3px rgba(136, 141, 158, 1)',
-        dark: '0 0 5px #0c0c13',
+        dark: '0 0 7px #0c0c13',
       },
       dropShadow: {
         glow: '0 0 2px #bdbfc3',
