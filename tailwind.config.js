@@ -10,6 +10,7 @@ module.exports = {
         dove: 'rgba(136, 141, 158, 1)',
         'dove-op': 'rgba(136, 141, 158, 0.6)',
         offwhite: '#d9d6e0',
+        'offwhite-op': 'rgba(217, 214, 224, 0.3)',
         ice: '#bdbfc3',
         lightblue: '#b4c7db',
         'lightblue-op': 'rgba(180, 199, 219, 0.6)',
@@ -32,6 +33,16 @@ module.exports = {
         glow: '0 0 2px #bdbfc3',
         subtle: '0 0 2px rgba(136, 141, 158, 1)',
         btn: '0 0 1px rgba(136, 141, 158, 1)',
+      },
+
+      keyframes: {
+        scaleFromLeft: {
+          '0%': { transform: 'scaleX(0)', transformOrigin: 'center' },
+          '100%': { transform: 'scaleX(1)', transformOrigin: 'center' },
+        },
+      },
+      animation: {
+        scaleFromLeft: 'scaleFromLeft 0.5s ease-out forwards',
       },
     },
   },
