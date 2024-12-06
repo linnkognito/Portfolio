@@ -80,7 +80,7 @@ function Map() {
                       <circle
                         cx='12'
                         cy='12'
-                        r='7'
+                        r='4'
                         fill='none'
                         stroke='#d9d6e0'
                         strokeWidth='2'
@@ -93,14 +93,14 @@ function Map() {
                         }`}
                       />
                       {/* Inner Static Circle */}
-                      <circle cx='12' cy='12' r='7' fill='#d9d6e0' />
+                      <circle cx='12' cy='12' r='4' fill='#d9d6e0' />
 
                       {(isHovered === m ||
                         (!isHovered && m.currentCity && !markerIsHovered) ||
                         (markerIsHovered && !m.currentCity)) && (
                         <text
-                          dy={17}
-                          dx={30}
+                          dy={17.6}
+                          dx={25}
                           fill='#d9d6e0'
                           style={{
                             fontSize: '1.5rem',
