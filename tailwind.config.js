@@ -36,13 +36,18 @@ module.exports = {
       },
 
       keyframes: {
-        scaleFromLeft: {
+        scaleFromCenter: {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'center' },
           '100%': { transform: 'scaleX(1)', transformOrigin: 'center' },
         },
+        scaleFromLeft: {
+          '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
+          '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
+        },
       },
       animation: {
-        scaleFromLeft: 'scaleFromLeft 0.5s ease-out forwards',
+        scaleFromCenter: 'scaleFromCenter 0.5s ease-out forwards',
+        scaleFromLeft: 'scaleFromLeft 0.8s ease-out forwards',
       },
     },
   },

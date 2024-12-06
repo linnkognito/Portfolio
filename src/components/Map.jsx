@@ -107,7 +107,7 @@ function Map() {
                             textTransform: 'uppercase',
                             fontWeight: 'bold',
                           }}
-                          className='animate-scaleFromLeft'
+                          className='animate-scaleFromCenter'
                         >
                           {m.value}
                         </text>

@@ -3,9 +3,10 @@ import Wrapper from './Wrapper';
 import { v4 as uuid } from 'uuid';
 
 const stats = [
-  { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '95' },
-  { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '95' },
-  { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '95' },
+  { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '90' },
+  { id: uuid(), left: 'solo work', right: 'teamwork', percentage: '60' },
+  { id: uuid(), left: 'gives up', right: 'tenacious', percentage: '100' },
+  { id: uuid(), left: 'slow learner', right: 'fast learner', percentage: '85' },
 ];
 
 function Stats() {
@@ -34,7 +35,9 @@ function Stats() {
             <span className='relative w-full min-w-1/2 h-4 shadow-subtle rounded bg-dove-op'>
               <span
                 style={{ width: `${stat.percentage}%` }}
-                className={`absolute h-4 rounded-l bg-ice`}
+                className={`absolute h-4 ${
+                  Number(stat.percentage) === 100 ? 'rounded' : 'rounded-l'
+                } bg-ice animate-scaleFromLeft`}
                 aria-label={`Personality trait: ${stat.percentage}% ${stat.right}`}
               ></span>
             </span>
