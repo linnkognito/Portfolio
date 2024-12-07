@@ -53,7 +53,10 @@ function Map() {
       <h3>Location</h3>
       <Wrapper cls='p-4'>
         <BorderCorners padding='p-1'>
-          <Content padding='' cls='m-2 bg-midnight shadow-glow rounded'>
+          <Content
+            padding=''
+            cls='m-2 bg-midnight shadow-glow rounded cursor-crosshair'
+          >
             <ComposableMap projection='geoMercator'>
               <Geographies geography={geoData}>
                 {({ geographies }) =>
@@ -80,7 +83,7 @@ function Map() {
                     <span>{city.label}</span>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      className='overflow-visible cursor-pointer'
+                      className='overflow-visible'
                       width='24'
                       height='24'
                       viewBox='0 0 24 24'
@@ -145,7 +148,7 @@ function Map() {
             {/* V a l u e */}
             <span
               className='text-left break-words text-fluid
-            cursor-pointer hover:text-shadow-shine hover:animate-pulse
+            cursor-crosshair hover:text-shadow-shine hover:animate-pulse
             '
               onMouseEnter={() => setIsHovered(city.location)}
               onMouseLeave={() => setIsHovered(null)}

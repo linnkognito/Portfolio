@@ -1,17 +1,12 @@
 [
   {
-    "technology": "HTML",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    "level": "intermediate"
-  },
-  {
-    "technology": "CSS",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    "level": "intermediate"
-  },
-  {
     "technology": "React.js",
     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "level": "intermediate"
+  },
+  {
+    "technology": "JavaScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     "level": "intermediate"
   },
   {
@@ -20,18 +15,23 @@
     "level": "beginner"
   },
   {
-    "technology": "JavaScript",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    "level": "intermediate"
-  },
-  {
     "technology": "Tailwind",
     "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
     "level": "intermediate"
   },
   {
+    "technology": "CSS",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    "level": "intermediate"
+  },
+  {
     "technology": "Sass",
     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+    "level": "intermediate"
+  },
+  {
+    "technology": "HTML",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     "level": "intermediate"
   }
 ]

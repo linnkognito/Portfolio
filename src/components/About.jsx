@@ -1,7 +1,6 @@
 import BorderCorners from './BorderCorners';
 import ContactDetails from './ContactDetails';
 import Content from './Content';
-
 import Wrapper from './Wrapper';
 
 function About() {
