@@ -54,6 +54,11 @@ module.exports = {
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
+        '.w-section': {
+          width: '83.333333%' /* 10/12 */,
+          minWidth: '66.666667%' /* 2/3 */,
+          maxWidth: '83.333333%' /* 2/3 */,
+        },
         '.text-shadow-subtle': {
           textShadow: '0 0 2px rgba(136, 141, 158, 1)',
         },

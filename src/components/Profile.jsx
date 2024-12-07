@@ -3,9 +3,9 @@ import About from './About';
 import Info from './Info';
 import Technologies from './Technologies';
 
-function ProfileContainer() {
+function Profile() {
   return (
-    <div className='flex flex-col gap-6 w-10/12 min-w-2/3 max-w-2/3 p-4 shadow-subtle-sm rounded'>
+    <div className='flex flex-col gap-6 w-section p-4 shadow-subtle-sm rounded'>
       <Wrapper cls='flex gap-4'>
         <About />
         <Info />
@@ -15,5 +15,5 @@ function ProfileContainer() {
   );
 }
 
-export default ProfileContainer;
+export default Profile;
 Wrapper;

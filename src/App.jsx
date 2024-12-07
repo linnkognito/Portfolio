@@ -1,6 +1,6 @@
-import ProfileContainer from './components/ProfileContainer';
+import AppContainer from './components/AppContainer';
+import Profile from './components/Profile';
 import Header from './components/Header';
-import Section from './components/Section';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -10,19 +10,11 @@ import Projects from './components/Projects';
 
 function App() {
   return (
-    <>
-      <div className='flex flex-col w-screen items-center'>
-        <Header />
-
-        <Section>
-          <ProfileContainer />
-        </Section>
-
-        <Section>
-          <Projects />
-        </Section>
-      </div>
-    </>
+    <AppContainer>
+      <Header />
+      <Profile />
+      <Projects />
+    </AppContainer>
   );
 }
 

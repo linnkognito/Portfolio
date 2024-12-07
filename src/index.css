@@ -12,7 +12,7 @@
 /*___B A S E_______________________________*/
 @layer base {
   body {
-    @apply bg-midnight text-offwhite font-sans font-medium tracking-wide leading-6 bg-noise px-8;
+    @apply bg-midnight text-offwhite font-sans font-medium tracking-wide leading-6 bg-noise;
   }
   button {
     @apply font-semibold tracking-widest text-shadow-glow uppercase;
@@ -48,6 +48,9 @@
 
 /*___C O M P O N E N T S___________________*/
 @layer components {
+  .section {
+    @apply w-10/12 min-w-2/3 max-w-2/3;
+  }
   .actionbar {
     @apply font-sans uppercase tracking-widest;
   }

@@ -26,7 +26,7 @@ function Technologies() {
             </BorderCorners>
             <span className='flex flex-col p-4 '>
               <h5 className='p-0'>{tech.technology}</h5>
-              <p className='italic text-lightblue'>{tech.level}</p>
+              <p className='text-xs italic text-lightblue'>{tech.level}</p>
             </span>
           </div>
         ))}
