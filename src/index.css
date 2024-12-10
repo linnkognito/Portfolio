@@ -44,6 +44,17 @@
   h5 {
     @apply font-semibold tracking-widest w-fit px-2;
   }
+
+  pre {
+    padding-top: 0 !important;
+    margin: 0 !important;
+    background-color: #16161e !important;
+    border-bottom-right-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+  }
+  code {
+    background-color: transparent !important;
+  }
 }
 
 /*___C O M P O N E N T S___________________*/
