@@ -41,7 +41,6 @@ function Map() {
   }
 
   function showText(city) {
-    console.log(isHovered);
     if (isHovered === city.location || (!isHovered && city.currentCity))
       return true;
 
