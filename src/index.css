@@ -55,10 +55,10 @@
     @apply font-sans uppercase tracking-widest;
   }
   .actionbar-h2 {
-    @apply bg-dove-op pl-4 bg-noise font-semibold text-base text-shadow-glow rounded-t uppercase;
+    @apply flex items-center bg-dove-op pl-4 bg-noise font-semibold text-base text-shadow-glow rounded-t uppercase;
   }
   .actionbar-h3 {
-    @apply pl-4 font-semibold text-shadow-glow border-b;
+    @apply flex items-center pl-4 font-semibold text-shadow-glow border-b;
   }
 }
 

@@ -1,5 +1,9 @@
 function AppContainer({ children }) {
-  return <div className='flex flex-col w-full items-center'>{children}</div>;
+  return (
+    <div className='flex flex-col gap-4 w-full items-center py-4'>
+      {children}
+    </div>
+  );
 }
 
 export default AppContainer;

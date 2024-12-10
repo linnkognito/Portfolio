@@ -14,10 +14,10 @@ function Info() {
         style='actionbar-h2'
         cls='rounded shadow-dark'
       >
-        <div>
+        <span>
           <ActionButton pos='left'>.doc</ActionButton>
           <ActionButton pos='right'>.pdf</ActionButton>
-        </div>
+        </span>
       </ActionBar>
     </div>
   );
