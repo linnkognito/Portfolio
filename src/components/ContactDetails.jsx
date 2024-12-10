@@ -55,7 +55,7 @@ function ContactDetails() {
 
           {/* S e p a r a t o r */}
           <span className='mx-2 text-center font-bold text-shadow-subtle text-ice'>
-            ›
+            &rsaquo;
           </span>
 
           {/* V a l u e */}

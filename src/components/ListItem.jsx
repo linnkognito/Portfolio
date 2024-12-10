@@ -2,7 +2,7 @@ function ListItem({ key, label, value, hover = false }) {
   return (
     <div
       key={key}
-      className='w-full grid grid-cols-[1fr_auto_1fr] grid-rows[auto] items-start mb-2 text-sm uppercase bg-midnight rounded'
+      className='w-full grid grid-cols-[1fr_auto_1fr] grid-rows[auto] items-start mb-2 last:mb-0 p-1 text-sm uppercase bg-midnight rounded'
     >
       {/* L a b e l */}
       <h5 className='justify-self-end font-semibold text-shadow-glow text-fluid break-words p-0'>
@@ -11,7 +11,7 @@ function ListItem({ key, label, value, hover = false }) {
 
       {/* S e p a r a t o r */}
       <span className='mx-3 text-center font-bold text-shadow-subtle text-ice'>
-        ›
+        &rsaquo;
       </span>
 
       {/* V a l u e */}

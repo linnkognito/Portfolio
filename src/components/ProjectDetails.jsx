@@ -22,9 +22,9 @@ function createProjectListItem(project) {
 
 function ProjectDetails() {
   return (
-    <div>
+    <div className='shadow-subtle-sm'>
       <h3>Details</h3>
-      <Content cls='bg-steel inner-subtle-sm rounded-b uppercase'>
+      <Content cls='bg-steel inner-subtle rounded-b uppercase'>
         {projects.map((p) => createProjectListItem(p))}
       </Content>
     </div>

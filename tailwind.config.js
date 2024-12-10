@@ -28,6 +28,7 @@ module.exports = {
         glow: '0 0 5px #bdbfc3',
         subtle: '0 0 5px rgba(136, 141, 158, 1)',
         'subtle-sm': '0 0 3px rgba(136, 141, 158, 1)',
+        'subtle-b': '0 4px 5px rgba(136, 141, 158, 1)',
         dark: '0 0 7px #0c0c13',
         'inner-subtle-sm': 'inset 0 0 3px #bdbfc3',
       },
