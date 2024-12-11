@@ -16,10 +16,8 @@ function ProjectSlideshow() {
 
   function handleNext() {
     if (lastIndex === projectCount - 1) return setStartIndex(0);
-
     setStartIndex((i) => i + 1);
   }
-
   function handlePrev() {
     if (startIndex === 0) return setStartIndex(projectCount - 4);
     setStartIndex((i) => i - 1);
@@ -53,12 +51,12 @@ function ProjectSlideshow() {
                 cornerH='h-3'
                 border='border'
                 rounded='rounded-sm'
-                cls='shadow-subtle-sm hover:shadow-glow'
+                cls='overflow-hidden shadow-subtle-sm hover:shadow-glow'
               >
                 <img
                   src={p.image}
                   alt={p.title}
-                  className='shadow-subtle-sm rounded-sm cursor-pointer'
+                  className='object-cover object-top w-full h-full shadow-subtle-sm rounded-sm cursor-pointer'
                 />
               </BorderCorners>
             );
