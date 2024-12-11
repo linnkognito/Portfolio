@@ -6,7 +6,7 @@ import Stats from './Stats';
 
 function Info() {
   return (
-    <div className='flex flex-col gap-6 items-center w-1/2 min-w-1/2 max-w-1/2 h-full p-6 rounded shadow-subtle-sm bg-steel bg-noise'>
+    <div className='flex flex-col gap-6 items-center w-full h-full p-6 rounded shadow-subtle-sm bg-steel bg-noise'>
       <Stats />
       <Map />
       <ActionBar

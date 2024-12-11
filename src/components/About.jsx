@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 function About() {
   return (
     // Wrapper //
-    <Wrapper cls='w-1/2 min-w-1/2 max-w-1/2 rounded shadow-subtle-sm bg-steel bg-noise'>
+    <Wrapper cls='w-full rounded shadow-subtle-sm bg-steel bg-noise'>
       {/* Heading */}
       <h2>About</h2>
 
