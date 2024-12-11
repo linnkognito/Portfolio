@@ -1,29 +1,22 @@
 // import { v4 as uuid } from 'uuid';
+import { useState } from 'react';
+import projects from '../../data/projects.json';
 
-// const projects = [
-//   {
-//     id: uuid(),
-//     title: 'Project01',
-//     description: 'Lorem Ipsum.',
-//     technologies: [],
-//     img: '/img/img01.jpg',
-//   },
-// {
-//   id: uuid(),
-//   title: 'Project02',
-//   description: 'Lorem Ipsum.',
-//   technologies: [],
-//   img: '/img/img02.jpg',
-// },
-// {
-//   id: uuid(),
-//   title: 'Project03',
-//   description: 'Lorem Ipsum.',
-//   technologies: [],
-//   img: '/img/img03.jpg',
-// },
-// ];
+function Slideshow() {
+  const [displayAs, setDisplayAs] = useState('thumbnails');
 
-function Slideshow() {}
+  return (
+    <div className='flex gap-2'>
+      <span class="material-symbols-outlined">chevron_left</span>
+      {projects.map(p => (
+        displayAs === 'thumbnails' ? 
+          <img key={p.title} src={p.image} alt={p.title} />
+        
+          
+        ))}
+      <span class="material-symbols-outlined">chevron_right</span>
+    </div>
+  );
+}
 
 export default Slideshow;

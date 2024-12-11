@@ -16,7 +16,7 @@ function Technologies() {
               cornerH='h-4'
               cornerW='w-4'
               padding='p-2'
-              borderColor='border-lightblue'
+              border='border-lightblue'
             >
               <img
                 src={tech.icon}

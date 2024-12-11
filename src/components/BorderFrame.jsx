@@ -2,14 +2,14 @@ function BorderFrame({
   children,
   cls = '',
   width = 'w-full',
-  padding = 'p-0',
+  padding = 'p-1',
   border = 'border-lightblue border-2 rounded',
   widthX = 'w-24',
   heightY = 'h-16',
 }) {
   return (
     <div
-      className={`${width} ${padding} ${cls} border border-lightblue relative shadow-glow`}
+      className={`${width} ${padding} ${cls}  border-lightblue relative shadow-subtle rounded`}
     >
       {/* Top border */}
       <span

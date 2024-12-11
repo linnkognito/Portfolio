@@ -10,19 +10,19 @@ const projects = [
   },
 ];
 
-function createProjectListItem(project) {
-  return Object.entries(project).map(([key, value]) => (
-    <ListItem
-      key={key}
-      label={key}
-      value={Array.isArray(value) ? value.join(', ') : value}
-    />
-  ));
-}
-
 function ProjectDetails() {
+  function createProjectListItem(project) {
+    return Object.entries(project).map(([key, value]) => (
+      <ListItem
+        key={key}
+        label={key}
+        value={Array.isArray(value) ? value.join(', ') : value}
+      />
+    ));
+  }
+
   return (
-    <div className='shadow-subtle-sm'>
+    <div className='lg:order-2 md:order-2 sm:order-1 max-w-full flex-none shadow-subtle-sm rounded'>
       <h3>Details</h3>
       <Content cls='bg-steel inner-subtle rounded-b uppercase'>
         {projects.map((p) => createProjectListItem(p))}

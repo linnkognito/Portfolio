@@ -9,7 +9,7 @@ function Code({ code, language }) {
   }, [code, language]);
 
   return (
-    <div className='w-full'>
+    <div className='w-full max-h-[70vh]'>
       <pre>
         <code className={`language-${language}`}>{code}</code>
       </pre>

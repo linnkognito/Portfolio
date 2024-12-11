@@ -17,6 +17,7 @@ import SourceCode from './components/SourceCode';
 import Projects from './components/Projects';
 import ProjectSidebar from './components/ProjectSidebar';
 import ProjectDetails from './components/ProjectDetails';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
           </Projects>
         </Section>
       </Main>
+
+      <Footer />
     </AppContainer>
   );
 }

@@ -1,15 +1,7 @@
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-
 function ProjectSidebar({ children }) {
   return (
-    <div className='flex flex-col gap-6 bg-midnight rounded'>
+    <div className='lg:order-1 md:order-1 sm:order-2 flex flex-col h-full gap-5  bg-midnight rounded'>
       {children}
-
-      <ActionBar style='actionbar-h3' title='navigation' cls='border-b'>
-        <ActionButton pos='left'>Live</ActionButton>
-        <ActionButton pos='right'>GitHub</ActionButton>
-      </ActionBar>
     </div>
   );
 }
