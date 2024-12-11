@@ -6,11 +6,10 @@ import BorderCorners from './BorderCorners';
 import Content from './Content';
 
 function ProjectSlideshow() {
-  const [isHovered, setIsHovered] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
+
   let lastIndex = startIndex + 3;
   const projectCount = projects.length;
-
   const displayedProjects = projects.filter(
     (_, i) => i >= startIndex && i <= lastIndex
   );
@@ -54,14 +53,12 @@ function ProjectSlideshow() {
                 cornerH='h-3'
                 border='border'
                 rounded='rounded-sm'
-                cls={`${isHovered === p ? 'shadow-glow' : 'shadow-subtle-sm'}`}
+                cls='shadow-subtle-sm hover:shadow-glow'
               >
                 <img
                   src={p.image}
                   alt={p.title}
                   className='shadow-subtle-sm rounded-sm cursor-pointer'
-                  onMouseEnter={() => setIsHovered(p)}
-                  onMouseLeave={() => setIsHovered(null)}
                 />
               </BorderCorners>
             );
