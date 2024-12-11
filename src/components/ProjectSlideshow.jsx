@@ -7,11 +7,28 @@ import Content from './Content';
 
 function ProjectSlideshow() {
   const [isHovered, setIsHovered] = useState(null);
-  let displayAs = 'thumbnails';
+  const [startIndex, setStartIndex] = useState(0);
+  let lastIndex = startIndex + 3;
+  const projectCount = projects.length;
+
+  const displayedProjects = projects.filter(
+    (_, i) => i >= startIndex && i <= lastIndex
+  );
+
+  function handleNext() {
+    if (lastIndex === projectCount - 1) return setStartIndex(0);
+
+    setStartIndex((i) => i + 1);
+  }
+
+  function handlePrev() {
+    if (startIndex === 0) return setStartIndex(projectCount - 4);
+    setStartIndex((i) => i - 1);
+  }
 
   return (
     <div className='w-full'>
-      <ActionBar style='actionbar-h3' title='Show as'>
+      <ActionBar style='actionbar-h3' title={`Projects (${projectCount})`}>
         <ActionButton pos='left'>Thumbnails</ActionButton>
         <ActionButton pos='right'>List</ActionButton>
       </ActionBar>
@@ -20,13 +37,16 @@ function ProjectSlideshow() {
         <span
           className='material-symbols-outlined text-2xl cursor-pointer hover:animate-pulse'
           aria-label='Go back'
+          onClick={handlePrev}
         >
           chevron_left
         </span>
 
         <div className='grid grid-cols-4 gap-4'>
-          {projects.map((p) =>
-            displayAs === 'thumbnails' ? (
+          {displayedProjects.map((p, i) => {
+            if (i > lastIndex) return;
+
+            return (
               <BorderCorners
                 key={p.title}
                 padding='p-1'
@@ -44,14 +64,13 @@ function ProjectSlideshow() {
                   onMouseLeave={() => setIsHovered(null)}
                 />
               </BorderCorners>
-            ) : (
-              ''
-            )
-          )}
+            );
+          })}
         </div>
         <span
           className='material-symbols-outlined text-2xl cursor-pointer hover:animate-pulse'
           aria-label='Go forward'
+          onClick={handleNext}
         >
           chevron_right
         </span>
