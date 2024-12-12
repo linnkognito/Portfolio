@@ -46,11 +46,11 @@ function ContactDetails() {
       {details.map((item) => (
         <div
           key={item.label}
-          className='w-full grid grid-cols-[1fr_auto_1fr] items-start gap-2 text-sm uppercase bg-steel rounded'
+          className='w-full grid grid-cols-[1fr_auto_1fr] items-start gap-2 text-sm uppercase bg-midnight rounded'
         >
           {/* L a b e l */}
           <h5 className='justify-self-end font-semibold text-shadow-glow text-fluid break-words'>
-            [ {item.label} ]
+            {item.label}
           </h5>
 
           {/* S e p a r a t o r */}

@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         midnight: '#0c0c13',
         steel: '#16161e',
+        'midnight-op': 'rgba(12, 12, 19, 0.7)',
         dove: 'rgba(136, 141, 158, 1)',
         'dove-op': 'rgba(136, 141, 158, 0.6)',
         offwhite: '#d9d6e0',

@@ -49,7 +49,7 @@ function Map() {
 
   return (
     <div className='realtive w-full h-auto bg-steel rounded shadow-subtle'>
-      <h3>Location</h3>
+      <h3 className='bg-midnight rounded-t'>Location</h3>
       <Wrapper cls='p-4'>
         <BorderCorners padding='p-1'>
           <Content

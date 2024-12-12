@@ -15,32 +15,33 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <AppContainer>
-      <Header />
+    <>
+      <AppContainer>
+        <Header />
 
-      <Main>
-        <Section>
-          <Profile>
-            <About />
-            <Info />
-          </Profile>
-          <Technologies />
-        </Section>
+        <Main>
+          <Section>
+            <Profile>
+              <About />
+              <Info />
+            </Profile>
+            <Technologies />
+          </Section>
 
-        <Section>
-          <Projects>
-            <ProjectSidebar>
-              <SourceCode />
-              <ProjectDetails />
-            </ProjectSidebar>
+          <Section>
+            <Projects>
+              <ProjectSidebar>
+                <SourceCode />
+                <ProjectDetails />
+              </ProjectSidebar>
 
-            <ProjectPreview />
-          </Projects>
-        </Section>
-      </Main>
-
+              <ProjectPreview />
+            </Projects>
+          </Section>
+        </Main>
+      </AppContainer>
       <Footer />
-    </AppContainer>
+    </>
   );
 }
 

@@ -14,7 +14,7 @@ function Stats() {
     <Wrapper cls='flex flex-col gap-2 w-full'>
       {/* Stats */}
       <Content cls='rounded shadow-subtle' bg='bg-steel' padding='pb-2'>
-        <h3 className='mb-2'>Stats</h3>
+        <h3 className='mb-2 bg-midnight rounded-t'>Stats</h3>
 
         {/* Statusbar + lables */}
         {stats.map((stat) => (

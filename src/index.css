@@ -55,6 +55,10 @@
   code {
     background-color: transparent !important;
   }
+
+  ::selection {
+    @apply bg-dove text-midnight;
+  }
 }
 
 /*___C O M P O N E N T S___________________*/

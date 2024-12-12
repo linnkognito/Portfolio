@@ -2,11 +2,11 @@ function BorderCorners({
   children,
   cls = '',
   width = 'w-full',
-  padding = 'p-5',
+  padding = 'p-3',
   borderColor = 'border-ice',
   cornerH = 'h-8',
   cornerW = 'w-8',
-  rounded = 'rounded',
+  rounded = 'rounded-sm',
 }) {
   return (
     <div className={`${width} ${padding} ${cls} relative`}>

@@ -1,0 +1,12 @@
+[
+  {
+    "title": "JavaScript",
+    "course": "The complete JavaScript course 2024",
+    "image": "/img/cert-js.jpg"
+  },
+  {
+    "title": "Node.js",
+    "course": "Node.js, Express, MongoDB & more bootcamp",
+    "image": "/img/cert-node.jpg"
+  }
+]
