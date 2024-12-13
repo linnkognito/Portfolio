@@ -11,8 +11,6 @@ async function fetchProjectData(repo, path = '') {
       sourceCode: res.data.content ? atob(res.data.content) : null,
     };
 
-    console.log(data);
-
     return data;
   } catch (err) {
     if (err.response?.status === 403) {

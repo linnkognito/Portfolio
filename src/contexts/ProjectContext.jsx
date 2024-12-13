@@ -1,4 +1,10 @@
-import { createContext, useCallback, useContext, useReducer } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useReducer,
+} from 'react';
 import fetchProjectData from '../utils/fetchProjectData';
 
 const ProjectContext = createContext();
@@ -14,6 +20,7 @@ const initialState = {
     tech: [],
   },
   curFile: {},
+  curFolder: [],
   isLoading: false,
 };
 
@@ -35,6 +42,12 @@ function reducer(state, action) {
       };
     case 'project/fileSelection':
       return { ...state, curFile: action.payload, isLoading: false };
+    case 'project/dirSelection':
+      return {
+        ...state,
+        curFolder: action.payload,
+        isLoading: false,
+      };
 
     case 'rejected':
       return {
@@ -48,30 +61,30 @@ function reducer(state, action) {
 }
 
 function ProjectProvider({ children }) {
-  const [{ curProject, curFile, isLoading }, dispatch] = useReducer(
+  const [{ curProject, curFile, curFolder, isLoading }, dispatch] = useReducer(
     reducer,
     initialState
   );
-
   const contextValue = useMemo(
     () => ({
       getProjectData,
-      curFile,
       curProject,
+      curFile,
+      curFolder,
       isLoading,
       dispatch,
     }),
-    [getProjectData, curFile, curProject, isLoading]
+    [getProjectData, curFile, curProject, curFolder, isLoading]
   );
 
   const getProjectData = useCallback(
-    async function getProjectData(project, repo) {
+    async function getProjectData(project, repo, path) {
       if (project === curProject) return;
 
       dispatch({ type: 'loading' });
 
       try {
-        const data = await fetchProjectData(repo);
+        const data = await fetchProjectData(repo, path);
 
         dispatch({ type: 'project/loaded', payload: data });
       } catch {

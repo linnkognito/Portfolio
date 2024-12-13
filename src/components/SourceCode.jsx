@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import { useProject } from '../contexts/ProjectContext';
 import ActionBar from './ActionBar';
+import Wrapper from './Wrapper';
 import Code from './Code';
 import Content from './Content';
+import ActionButton from './ActionButton';
+import ListItems from './ListItems';
 
 function SourceCode() {
-  const { curFile, curProject, dispatch } = useProject();
-
-  function handleClick(file) {
-    dispatch({ type: 'project/fileSelection', payload: file });
-  }
+  const { curFile, curProject } = useProject();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   function getLanguage(fileName) {
     if (!fileName) return console.error('Could not find this file.');
@@ -32,19 +33,21 @@ function SourceCode() {
   return (
     <div className='lg:order-1 order-3 flex flex-col flex-1 w-full bg-midnight shadow-subtle rounded'>
       <ActionBar title='Source Code' style='actionbar-h3'>
-        <select value={`${curFile ? curFile.name : 'Select a file'}`}>
-          {curProject.files.map((file) => {
-            //if (file.type !== 'file') return;
-
-            <option
-              key={file.sha}
-              onClick={file.type === 'dir' ? '' : () => handleClick(file)}
-            >
-              {file.name}
-            </option>;
-          })}
-        </select>
+        <ActionButton
+          pos='right'
+          onClick={() => setShowDropdown((shown) => !shown)}
+        >
+          {curFile?.name || 'Select a file'}
+        </ActionButton>
       </ActionBar>
+
+      {showDropdown && (
+        <Wrapper cls='relative flex flex-col max-w-[50%]'>
+          <ul className='absolute top-0 right-0'>
+            <ListItems array={curProject.files} />
+          </ul>
+        </Wrapper>
+      )}
 
       <Content
         cls='flex-1 content max-w-full max-h-5/6 overflow-auto font-mono bg-steel inner-subtle-sm rounded-b'
@@ -56,7 +59,7 @@ function SourceCode() {
               ? curFile.sourceCode
               : '//  Select a file in the dropdown menu to view the source code'
           }`}
-          language={() => getLanguage(curFile.name)}
+          language={() => getLanguage(curFile?.name)}
         />
       </Content>
     </div>

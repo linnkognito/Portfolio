@@ -7,7 +7,7 @@ import Content from './Content';
 import { useProject } from '../contexts/ProjectContext';
 
 function ProjectSlideshow() {
-  const { curProject, getProjectData, dispatch } = useProject();
+  const { getProjectData, dispatch } = useProject();
   const [startIndex, setStartIndex] = useState(0);
 
   let lastIndex = startIndex + 3;
@@ -31,7 +31,6 @@ function ProjectSlideshow() {
     dispatch({ type: 'project/selection', payload: project });
     getProjectData(project, project.repo);
   }
-  console.log(curProject);
 
   return (
     <div className='w-full'>
