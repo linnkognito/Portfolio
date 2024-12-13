@@ -22,7 +22,7 @@ function ProjectDetails() {
   }
 
   return (
-    <div className='lg:order-2 md:order-2 sm:order-1 max-w-full flex-none shadow-subtle-sm rounded'>
+    <div className='lg:order-2 order-1 max-w-full flex-none shadow-subtle-sm rounded'>
       <h3>Details</h3>
       <Content cls='bg-steel inner-subtle rounded-b uppercase'>
         {projects.map((p) => createProjectListItem(p))}

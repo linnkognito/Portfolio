@@ -34,7 +34,6 @@ function App() {
                 <SourceCode />
                 <ProjectDetails />
               </ProjectSidebar>
-
               <ProjectPreview />
             </Projects>
           </Section>

@@ -1,11 +1,13 @@
 [
   {
-    "title": "Array workout",
+    "id": "01",
+    "title": "Arrays",
+    "repo": "Arrays",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
     "image": "/img/array-workout.png",
     "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
+    "github": "https://github.com/linnkognito/Arrays"
   },
   {
     "title": "Array workout",

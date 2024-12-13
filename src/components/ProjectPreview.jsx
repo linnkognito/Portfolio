@@ -6,7 +6,7 @@ import ProjectSlideshow from './ProjectSlideshow';
 
 function ProjectPreview() {
   return (
-    <div className='lg:order-2 md:order-2 sm:order-1 flex flex-col gap-3 w-full bg-steel shadow-subtle rounded'>
+    <div className='lg:order-2 xs:order-1 flex flex-col gap-3 w-full bg-steel shadow-subtle rounded'>
       <ActionBar
         style='actionbar-h3'
         title='preview'

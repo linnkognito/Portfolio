@@ -1,27 +1,37 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import projects from '../../data/projects.json';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
 import BorderCorners from './BorderCorners';
 import Content from './Content';
+import { useProject } from '../contexts/ProjectContext';
 
 function ProjectSlideshow() {
+  const { curProject, getProjectData, dispatch } = useProject();
   const [startIndex, setStartIndex] = useState(0);
 
   let lastIndex = startIndex + 3;
   const projectCount = projects.length;
-  const displayedProjects = projects.filter(
-    (_, i) => i >= startIndex && i <= lastIndex
+
+  const displayedProjects = useMemo(
+    () => projects.filter((_, i) => i >= startIndex && i <= lastIndex),
+    [startIndex, lastIndex]
   );
 
   function handleNext() {
     if (lastIndex === projectCount - 1) return setStartIndex(0);
+
     setStartIndex((i) => i + 1);
   }
   function handlePrev() {
     if (startIndex === 0) return setStartIndex(projectCount - 4);
     setStartIndex((i) => i - 1);
   }
+  function handleClick(project) {
+    dispatch({ type: 'project/selection', payload: project });
+    getProjectData(project, project.repo);
+  }
+  console.log(curProject);
 
   return (
     <div className='w-full'>
@@ -44,21 +54,22 @@ function ProjectSlideshow() {
             if (i > lastIndex) return;
 
             return (
-              <BorderCorners
-                key={p.title}
-                padding='p-1'
-                cornerW='w-3'
-                cornerH='h-3'
-                border='border'
-                rounded='rounded-sm'
-                cls='overflow-hidden shadow-subtle-sm hover:shadow-glow'
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className='object-cover object-top w-full h-full shadow-subtle-sm rounded-sm cursor-pointer'
-                />
-              </BorderCorners>
+              <div key={i} onClick={() => handleClick(p)}>
+                <BorderCorners
+                  padding='p-1'
+                  cornerW='w-3'
+                  cornerH='h-3'
+                  border='border'
+                  rounded='rounded-sm'
+                  cls='overflow-hidden shadow-subtle-sm hover:shadow-glow'
+                >
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className='object-cover object-top w-full h-full shadow-subtle-sm rounded-sm cursor-pointer'
+                  />
+                </BorderCorners>
+              </div>
             );
           })}
         </div>
