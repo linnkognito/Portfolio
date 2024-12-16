@@ -1,14 +1,17 @@
-import { useProject } from '../contexts/ProjectContext';
+// import { useProject } from '../contexts/ProjectContext';
 
 function FileItem({ file }) {
-  const { dispatch } = useProject();
+  // const { dispatch } = useProject();
 
-  function handleFileClick(file) {
-    dispatch({ type: 'project/fileSelection', payload: file });
-  }
+  // function handleFileClick(file) {
+  //   dispatch({ type: 'project/fileSelection', payload: file });
+  // }
 
   return (
-    <li onClick={() => handleFileClick(file)} className='w-full'>
+    <li
+      // onClick={() => handleFileClick(file)}
+      className='w-full'
+    >
       <h5>{file.name}</h5>
     </li>
   );

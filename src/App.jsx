@@ -6,12 +6,13 @@ import Profile from './components/Profile';
 import About from './components/About';
 import Info from './components/Info';
 import Technologies from './components/Technologies';
-import ProjectPreview from './components/ProjectPreview';
-import SourceCode from './components/SourceCode';
+// import ProjectPreview from './components/ProjectPreview';
+// import SourceCode from './components/SourceCode';
 import Projects from './components/Projects';
 import ProjectSidebar from './components/ProjectSidebar';
 import ProjectDetails from './components/ProjectDetails';
 import Footer from './components/Footer';
+import ProjectProvider from './contexts/ProjectProvider';
 
 function App() {
   return (
@@ -29,13 +30,15 @@ function App() {
           </Section>
 
           <Section>
-            <Projects>
-              <ProjectSidebar>
-                <SourceCode />
-                <ProjectDetails />
-              </ProjectSidebar>
-              <ProjectPreview />
-            </Projects>
+            <ProjectProvider>
+              <Projects>
+                <ProjectSidebar>
+                  {/* <SourceCode /> */}
+                  <ProjectDetails />
+                </ProjectSidebar>
+                {/* <ProjectPreview /> */}
+              </Projects>
+            </ProjectProvider>
           </Section>
         </Main>
       </AppContainer>

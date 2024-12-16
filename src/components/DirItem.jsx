@@ -1,20 +1,36 @@
-import { useState } from 'react';
-import { useProject } from '../contexts/ProjectContext';
-import ListItems from './ListItems';
+// import { useState } from 'react';
+// import { useProject } from '../contexts/ProjectContext';
+// import ListItems from './ListItems';
 
 function DirItem({ file }) {
-  const { curProject, curFolder, getProjectData, dispatch } = useProject();
-  const [isExpanded, setIsExpanded] = useState(false);
+  // const { curProject, getCurProjectData } = useProject();
+  // const [expandedFolders, setExpandedFolders] = useState(new Set());
 
-  function handleDirClick(dir) {
-    setIsExpanded((is) => !is);
-    const folder = getProjectData(curProject, curProject.repo, dir.name);
+  // function handleClick(dir) {
+  //   toggleFolder(dir);
 
-    dispatch({ type: 'project/dirSelection', payload: folder });
-  }
+  //   if (!expandedFolders.has(dir.sha)) {
+  //     const folder = getCurProjectData(curProject, curProject.repo, dir.name);
+  //     dispatch({ type: 'project/dirSelection', payload: folder });
+  //   }
+  // }
+
+  // function toggleFolder(dir) {
+  //   setExpandedFolders((prev) => {
+  //     const newSet = new Set(prev);
+  //     if (newSet.has(dir.sha)) {
+  //       return newSet.delete(dir.sha);
+  //     }
+
+  //     return newSet;
+  //   });
+  // }
 
   return (
-    <div className='w-full' onClick={() => handleDirClick(file)}>
+    <div
+      className='w-full'
+      // onClick={() => handleClick(file)}
+    >
       <details>
         <summary className='flex gap-1 items-center'>
           <h5>
@@ -25,7 +41,7 @@ function DirItem({ file }) {
           </h5>
         </summary>
 
-        {isExpanded && <ListItems array={curFolder} />}
+        {/* {expandedFolders.has(file.sha) && <ListItems array={curFolder} />} */}
       </details>
     </div>
   );

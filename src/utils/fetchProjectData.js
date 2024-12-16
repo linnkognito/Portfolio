@@ -6,16 +6,10 @@ async function fetchProjectData(repo, path = '') {
   try {
     const res = await axios.get(url);
 
-    const data = {
-      ...res.data,
-      sourceCode: res.data.content ? atob(res.data.content) : null,
-    };
-
-    return data;
+    return res.data;
   } catch (err) {
-    if (err.response?.status === 403) {
+    if (err.response?.status === 403)
       console.error('GitHub API rate limit exceeded.');
-    }
 
     if (import.meta.env.MODE === 'development')
       console.error(`Failed to fetch data. (${err.message})`);

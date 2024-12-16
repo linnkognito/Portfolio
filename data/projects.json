@@ -4,12 +4,13 @@
     "title": "Arrays",
     "repo": "Arrays",
     "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
+    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
     "image": "/img/array-workout.png",
     "tech": ["React", "JavaScript", "Tailwind CSS"],
     "github": "https://github.com/linnkognito/Arrays"
   },
   {
+    "id": "02",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -18,6 +19,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "03",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -26,6 +28,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "04",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -34,6 +37,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "05",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -42,6 +46,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "06",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -50,6 +55,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "07",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
@@ -58,6 +64,7 @@
     "github": "https://github.com/linnkognito/arrays"
   },
   {
+    "id": "08",
     "title": "Array workout",
     "hoverTitle": "Array workout",
     "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",

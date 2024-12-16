@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import projects from '../../data/projects.json';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
@@ -7,8 +7,9 @@ import Content from './Content';
 import { useProject } from '../contexts/ProjectContext';
 
 function ProjectSlideshow() {
-  const { getProjectData, dispatch } = useProject();
+  const { setCurProject } = useProject();
   const [startIndex, setStartIndex] = useState(0);
+  const hasInitialized = useRef(false);
 
   let lastIndex = startIndex + 3;
   const projectCount = projects.length;
@@ -17,6 +18,13 @@ function ProjectSlideshow() {
     () => projects.filter((_, i) => i >= startIndex && i <= lastIndex),
     [startIndex, lastIndex]
   );
+
+  useEffect(() => {
+    if (!hasInitialized.current && displayedProjects.length > 0) {
+      setCurProject(displayedProjects[0]);
+      hasInitialized.current = true;
+    }
+  }, [displayedProjects, setCurProject]);
 
   function handleNext() {
     if (lastIndex === projectCount - 1) return setStartIndex(0);
@@ -28,8 +36,7 @@ function ProjectSlideshow() {
     setStartIndex((i) => i - 1);
   }
   function handleClick(project) {
-    dispatch({ type: 'project/selection', payload: project });
-    getProjectData(project, project.repo);
+    setCurProject(project);
   }
 
   return (
