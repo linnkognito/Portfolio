@@ -1,29 +1,37 @@
-function ListItem({ key, label, value, hover = false }) {
+import Content from './Content';
+
+function ListItem({
+  key,
+  label,
+  value,
+  uppercase = 'uppercase',
+  hover = false,
+}) {
   return (
     <div
       key={key}
-      className='w-full grid grid-cols-[1fr_auto_1fr] grid-rows[auto] items-start mb-2 last:mb-0 p-1 text-sm uppercase bg-midnight rounded'
+      className='w-full flex flex-col bg-midnight shadow-subtle-sm rounded'
     >
       {/* L a b e l */}
-      <h5 className='justify-self-end font-semibold text-shadow-glow text-fluid break-words p-0'>
+      <h3 className='text-sma'>
         {label}
-      </h5>
-
-      {/* S e p a r a t o r */}
-      <span className='mx-3 text-center font-bold text-shadow-subtle text-ice'>
-        &rsaquo;
-      </span>
+        <span className='ml-2 text-base font-bold text-shadow-subtle text-ice'>
+          &rsaquo;
+        </span>
+      </h3>
 
       {/* V a l u e */}
-      <span
-        className={`text-left break-words text-fluid ${
-          hover
-            ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
-            : ''
-        }`}
-      >
-        {value}
-      </span>
+      <Content>
+        <div
+          className={`text-justify text-base break-words text-fluid ${uppercase} ${
+            hover
+              ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
+              : ''
+          }`}
+        >
+          {value}
+        </div>
+      </Content>
     </div>
   );
 }

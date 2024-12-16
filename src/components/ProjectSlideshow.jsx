@@ -1,13 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import projects from '../../data/projects.json';
+import useProject from '../contexts/useProject';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
 import BorderCorners from './BorderCorners';
 import Content from './Content';
-import { useProject } from '../contexts/ProjectContext';
 
 function ProjectSlideshow() {
-  const { setCurProject } = useProject();
+  const { projects, setCurProject } = useProject();
   const [startIndex, setStartIndex] = useState(0);
   const hasInitialized = useRef(false);
 
@@ -16,7 +15,7 @@ function ProjectSlideshow() {
 
   const displayedProjects = useMemo(
     () => projects.filter((_, i) => i >= startIndex && i <= lastIndex),
-    [startIndex, lastIndex]
+    [startIndex, lastIndex, projects]
   );
 
   useEffect(() => {
