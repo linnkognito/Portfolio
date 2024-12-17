@@ -6,7 +6,7 @@ import TechIcon from './TechIcon';
 
 function ProjectDetails() {
   const { getCurProject, isProjectLoading } = useProject();
-  const project = getCurProject();
+  const project = getCurProject;
 
   return (
     <div className='lg:order-2 order-1 max-w-full flex-none shadow-subtle-sm rounded'>

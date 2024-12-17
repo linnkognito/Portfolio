@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import useProject from '../contexts/useProject';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
@@ -8,7 +8,6 @@ import Content from './Content';
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();
   const [startIndex, setStartIndex] = useState(0);
-  const hasInitialized = useRef(false);
 
   let lastIndex = startIndex + 3;
   const projectCount = projects.length;
@@ -17,13 +16,6 @@ function ProjectSlideshow() {
     () => projects.filter((_, i) => i >= startIndex && i <= lastIndex),
     [startIndex, lastIndex, projects]
   );
-
-  useEffect(() => {
-    if (!hasInitialized.current && displayedProjects.length > 0) {
-      setCurProject(displayedProjects[0]);
-      hasInitialized.current = true;
-    }
-  }, [displayedProjects, setCurProject]);
 
   function handleNext() {
     if (lastIndex === projectCount - 1) return setStartIndex(0);
@@ -66,7 +58,7 @@ function ProjectSlideshow() {
                   cornerH='h-3'
                   border='border'
                   rounded='rounded-sm'
-                  cls='overflow-hidden shadow-subtle-sm hover:shadow-glow'
+                  cls='h-full overflow-hidden shadow-subtle-sm hover:shadow-glow'
                 >
                   <img
                     src={p.image}

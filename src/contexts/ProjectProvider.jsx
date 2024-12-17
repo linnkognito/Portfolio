@@ -1,48 +1,31 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import ProjectContext from './ProjectContext';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import projects from '../../data/projects.json';
 
 function ProjectProvider({ children }) {
   const queryClient = useQueryClient();
   const initialProject = projects[0];
 
-  const [initialMount, setInitialMount] = useState(true);
-  const [isProjectLoading, setIsProjectLoading] = useState(false);
-
   const setCurProject = useCallback(
     (project) => {
       if (!project) return;
 
-      setIsProjectLoading(true);
-
-      queryClient.setQueryData({
-        queryKey: ['curProject'],
-        queryFn: () => project,
-      });
-
-      setIsProjectLoading(false);
+      queryClient.setQueryData(['curProject'], project);
     },
     [queryClient]
   );
 
   //________________________________________________//
 
-  const getCurProject = useCallback(() => {
-    return (
-      queryClient.getQueryData({ queryKey: ['curProject'] }) || initialProject
-    );
-  }, [queryClient, initialProject]);
-  //________________________________________________//
-
-  useEffect(() => {
-    if (initialMount) {
-      setIsProjectLoading(true);
-      setCurProject(initialProject);
-      setInitialMount(false);
-      setIsProjectLoading(false);
-    }
-  }, [initialMount, initialProject, setCurProject]);
+  const {
+    data: getCurProject,
+    isLoading: isProjectLoading,
+    isFetching: isProjectFetching,
+  } = useQuery({
+    queryKey: ['curProject'],
+    initialData: initialProject,
+  });
 
   //________________________________________________//
 
@@ -54,6 +37,7 @@ function ProjectProvider({ children }) {
         setCurProject,
         getCurProject,
         isProjectLoading,
+        isProjectFetching,
       }}
     >
       {children}
@@ -62,6 +46,81 @@ function ProjectProvider({ children }) {
 }
 
 export default ProjectProvider;
+
+// import { useCallback } from 'react';
+// import ProjectContext from './ProjectContext';
+// import { useQuery, useQueryClient } from '@tanstack/react-query';
+// import projects from '../../data/projects.json';
+
+// function ProjectProvider({ children }) {
+//   const queryClient = useQueryClient();
+//   const initialProject = projects[0];
+
+//   // const [initialMount, setInitialMount] = useState(true);
+//   // const [isProjectLoading, setIsProjectLoading] = useState(false);
+
+//   const setCurProject = useCallback(
+//     (project) => {
+//       if (!project) return;
+
+//       // setIsProjectLoading(true);
+
+//       queryClient.setQueryData(['curProject'], project);
+//       // queryClient.setQueryData({
+//       //   queryKey: ['curProject'],
+//       //   queryFn: () => project,
+//       // });
+
+//       // setIsProjectLoading(false);
+//     },
+//     [queryClient]
+//   );
+
+//   //________________________________________________//
+
+//   // const getCurProject = useCallback(() => {
+//   //   return (
+//   //     queryClient.getQueryData({ queryKey: ['curProject'] }) || initialProject
+//   //   );
+//   // }, [queryClient, initialProject]);
+//   const {
+//     data: getCurProject,
+//     isLoading: isProjectLoading,
+//     isFetching: isProjectFetching,
+//   } = useQuery({
+//     queryKey: ['curProject'],
+//     initialData: initialProject,
+//   });
+//   //________________________________________________//
+
+//   // useEffect(() => {
+//   //   if (initialMount) {
+//   //     setIsProjectLoading(true);
+//   //     setCurProject(initialProject);
+//   //     setInitialMount(false);
+//   //     setIsProjectLoading(false);
+//   //   }
+//   // }, [initialMount, initialProject, setCurProject]);
+
+//   //________________________________________________//
+
+//   return (
+//     <ProjectContext.Provider
+//       value={{
+//         projects,
+//         initialProject,
+//         setCurProject,
+//         getCurProject,
+//         isProjectLoading,
+//         isProjectFetching,
+//       }}
+//     >
+//       {children}
+//     </ProjectContext.Provider>
+//   );
+// }
+
+// export default ProjectProvider;
 
 // const setCurProject = useCallback(
 //   async (project) => {

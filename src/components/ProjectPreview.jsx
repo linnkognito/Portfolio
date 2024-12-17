@@ -8,7 +8,7 @@ import ProjectSlideshow from './ProjectSlideshow';
 
 function ProjectPreview() {
   const { getCurProject, isProjectLoading } = useProject();
-  const project = getCurProject();
+  const project = getCurProject;
 
   function handleGitHubLink() {
     if (!project || !project.github) return;

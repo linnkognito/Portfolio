@@ -24,11 +24,29 @@
   },
   {
     "id": "02",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
+    "title": "Test",
+    "hoverTitle": "Test project",
+    "description": "Test description",
     "image": "/img/array-workout2.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
+    "tech": [
+      {
+        "technology": "React.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      },
+      {
+        "technology": "JavaScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "technology": "Node.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "level": "beginner"
+      },
+      {
+        "technology": "Tailwind",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+      }
+    ],
     "github": "https://github.com/linnkognito/arrays"
   },
   {
