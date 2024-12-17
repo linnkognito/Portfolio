@@ -11,14 +11,14 @@ function ListItem({
   return (
     <div
       key={key}
-      className='w-full flex flex-col bg-midnight shadow-subtle-sm rounded'
+      className='w-full flex flex-col bg-steel shadow-subtle-sm rounded'
     >
       {/* L a b e l */}
-      <h3 className='text-sma'>
+      <h3 className='text-sm bg-midnight rounded-t'>
         {label}
-        <span className='ml-2 text-base font-bold text-shadow-subtle text-ice'>
+        {/* <span className='ml-2 text-base font-bold text-shadow-subtle text-ice'>
           &rsaquo;
-        </span>
+        </span> */}
       </h3>
 
       {/* V a l u e */}

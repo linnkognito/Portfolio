@@ -5,7 +5,6 @@ async function fetchProjectData(repo, path = '') {
 
   try {
     const res = await axios.get(url);
-
     return res.data;
   } catch (err) {
     if (err.response?.status === 403)

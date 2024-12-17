@@ -48,10 +48,15 @@ module.exports = {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
           '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
         },
+        openDropdown: {
+          '0%': { transform: 'scaleX(0)', transformOrigin: 'top right' },
+          '100%': { transform: 'scaleX(1)', transformOrigin: 'top right' },
+        },
       },
       animation: {
         scaleFromCenter: 'scaleFromCenter 0.5s ease-out forwards',
         scaleFromLeft: 'scaleFromLeft 0.8s ease-out forwards',
+        openDropdown: 'openDropdown 0.2s ease-out forwards',
       },
     },
   },

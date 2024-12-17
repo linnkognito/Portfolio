@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import ProjectContext from './ProjectContext';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import projects from '../../data/projects.json';
+import fetchProjectData from '../utils/fetchProjectData';
 
 function ProjectProvider({ children }) {
   const queryClient = useQueryClient();
@@ -29,6 +30,52 @@ function ProjectProvider({ children }) {
 
   //________________________________________________//
 
+  const {
+    data: curFiles = [],
+    isLoading: loadingFiles,
+    isFetching: fetchingFiles,
+  } = useQuery({
+    queryKey: ['curFiles', getCurProject?.repo],
+    queryFn: () => fetchProjectData(getCurProject.repo),
+    enabled: !!getCurProject?.repo,
+  });
+  //________________________________________________//
+
+  const setCurFile = useCallback(
+    async (project, path) => {
+      if (!project?.repo || !path) {
+        return console.warn(
+          'Can not set current file: Invalid project or path',
+          project,
+          path
+        );
+      }
+
+      try {
+        const file = await queryClient.fetchQuery({
+          queryKey: ['curFile'],
+          queryFn: () => fetchProjectData(project.repo, path),
+        });
+        console.log(file);
+      } catch (err) {
+        console.error('Error setting current file', err);
+      }
+    },
+    [queryClient]
+  );
+
+  //________________________________________________//
+
+  const {
+    data: curFile = {},
+    isLoading: loadingFile,
+    isFetching: fetchingFile,
+  } = useQuery({
+    queryKey: ['curFile'],
+  });
+
+  //________________________________________________//
+
   return (
     <ProjectContext.Provider
       value={{
@@ -38,6 +85,13 @@ function ProjectProvider({ children }) {
         getCurProject,
         isProjectLoading,
         isProjectFetching,
+        curFiles,
+        loadingFiles,
+        fetchingFiles,
+        setCurFile,
+        curFile,
+        loadingFile,
+        fetchingFile,
       }}
     >
       {children}
@@ -46,117 +100,3 @@ function ProjectProvider({ children }) {
 }
 
 export default ProjectProvider;
-
-// import { useCallback } from 'react';
-// import ProjectContext from './ProjectContext';
-// import { useQuery, useQueryClient } from '@tanstack/react-query';
-// import projects from '../../data/projects.json';
-
-// function ProjectProvider({ children }) {
-//   const queryClient = useQueryClient();
-//   const initialProject = projects[0];
-
-//   // const [initialMount, setInitialMount] = useState(true);
-//   // const [isProjectLoading, setIsProjectLoading] = useState(false);
-
-//   const setCurProject = useCallback(
-//     (project) => {
-//       if (!project) return;
-
-//       // setIsProjectLoading(true);
-
-//       queryClient.setQueryData(['curProject'], project);
-//       // queryClient.setQueryData({
-//       //   queryKey: ['curProject'],
-//       //   queryFn: () => project,
-//       // });
-
-//       // setIsProjectLoading(false);
-//     },
-//     [queryClient]
-//   );
-
-//   //________________________________________________//
-
-//   // const getCurProject = useCallback(() => {
-//   //   return (
-//   //     queryClient.getQueryData({ queryKey: ['curProject'] }) || initialProject
-//   //   );
-//   // }, [queryClient, initialProject]);
-//   const {
-//     data: getCurProject,
-//     isLoading: isProjectLoading,
-//     isFetching: isProjectFetching,
-//   } = useQuery({
-//     queryKey: ['curProject'],
-//     initialData: initialProject,
-//   });
-//   //________________________________________________//
-
-//   // useEffect(() => {
-//   //   if (initialMount) {
-//   //     setIsProjectLoading(true);
-//   //     setCurProject(initialProject);
-//   //     setInitialMount(false);
-//   //     setIsProjectLoading(false);
-//   //   }
-//   // }, [initialMount, initialProject, setCurProject]);
-
-//   //________________________________________________//
-
-//   return (
-//     <ProjectContext.Provider
-//       value={{
-//         projects,
-//         initialProject,
-//         setCurProject,
-//         getCurProject,
-//         isProjectLoading,
-//         isProjectFetching,
-//       }}
-//     >
-//       {children}
-//     </ProjectContext.Provider>
-//   );
-// }
-
-// export default ProjectProvider;
-
-// const setCurProject = useCallback(
-//   async (project) => {
-//     if (!project) return;
-
-//     try {
-//       setCurProjectLoading(true);
-//       const files = await fetchProjectData(project.repo);
-//       const mergedProject = { ...project, files };
-
-//       queryClient.setQueryData({
-//         queryKey: ['curProject'],
-//         updater: () => mergedProject,
-//       });
-
-//       setCurProjectLoading(false);
-
-//       return mergedProject;
-//     } catch (err) {
-//       setCurProjectLoading(false);
-//       console.error(
-//         'Error setting current project (Origin: setCurProject',
-//         err
-//       );
-//     }
-//   },
-//   [queryClient]
-// );
-
-// useEffect(() => {
-//   async function setInitialProject() {
-//     if (initialMount && projects && projects.length > 0) {
-//       await setCurProject(projects[0]);
-//       setInitialMount(false);
-//     }
-//   }
-
-//   setInitialProject();
-// }, [initialMount, projects, setCurProject, getCurProject]);

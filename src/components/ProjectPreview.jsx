@@ -18,7 +18,7 @@ function ProjectPreview() {
   }
 
   return (
-    <div className='lg:order-2 xs:order-1 flex flex-col gap-3 w-full bg-steel shadow-subtle rounded'>
+    <div className='lg:order-2 xs:order-1 flex flex-col gap-3 bg-steel shadow-subtle rounded m-1'>
       <ActionBar
         style='actionbar-h3'
         title={`preview${project ? `: ${project.title}` : ''}`}
