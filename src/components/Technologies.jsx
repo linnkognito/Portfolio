@@ -10,18 +10,20 @@ function Technologies() {
         {data.map((tech) => (
           <div
             key={tech.technology}
-            className='flex items-center h-fit px-2 bg-midnight uppercase rounded'
+            className='flex items-center min-w-[200px] px-2 bg-midnight uppercase rounded'
           >
             <BorderCorners
+              width='w-fit'
               cornerH='h-4'
               cornerW='w-4'
               padding='p-2'
               border='border-lightblue'
+              cls='flex items-center min-w-11 min-h-11'
             >
               <img
                 src={tech.icon}
                 alt={`${tech.technology} logo`}
-                className='w-8'
+                className=''
               />
             </BorderCorners>
             <span className='flex flex-col p-4 '>

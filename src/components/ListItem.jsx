@@ -6,6 +6,7 @@ function ListItem({
   value,
   uppercase = 'uppercase',
   hover = false,
+  cls = '',
 }) {
   return (
     <div
@@ -23,7 +24,7 @@ function ListItem({
       {/* V a l u e */}
       <Content>
         <div
-          className={`text-justify text-base break-words text-fluid ${uppercase} ${
+          className={`text-justify text-base break-words text-fluid ${cls} ${uppercase} ${
             hover
               ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
               : ''

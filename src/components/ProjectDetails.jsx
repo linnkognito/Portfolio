@@ -2,6 +2,7 @@ import useProject from '../contexts/useProject';
 import Content from './Content';
 import ListItem from './ListItem';
 import Spinner from './Spinner';
+import TechIcon from './TechIcon';
 
 function ProjectDetails() {
   const { getCurProject, isProjectLoading } = useProject();
@@ -27,7 +28,14 @@ function ProjectDetails() {
             <ListItem
               key={'tech'}
               label={'Tech'}
-              value={project.tech.join(', ')}
+              cls='flex gap-2'
+              value={project.tech.map((tech) => (
+                <TechIcon
+                  key={tech.technology}
+                  icon={tech.icon}
+                  technology={tech.technology}
+                />
+              ))}
             />
           </>
         )}
