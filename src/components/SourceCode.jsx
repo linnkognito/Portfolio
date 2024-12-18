@@ -6,6 +6,7 @@ import Code from './Code';
 import Content from './Content';
 import ActionButton from './ActionButton';
 import Spinner from './Spinner';
+import Icon from './Icon';
 // import ListItems from './ListItems';
 
 function SourceCode() {
@@ -20,6 +21,7 @@ function SourceCode() {
     fileFetching,
   } = useProject();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [hoveredDir, setHoveredDir] = useState(null);
   const project = { ...getCurProject, curFiles };
 
   function getLanguage() {
@@ -43,17 +45,6 @@ function SourceCode() {
 
     return languageMap[fileType] || 'plaintext';
   }
-
-  function handleFileClick(file) {
-    if (!file?.path) {
-      console.warn('Invalid file selected:', file);
-      return;
-    }
-
-    setCurFile(project, file.path);
-    setShowDropdown(false);
-  }
-
   function decodeContent(content) {
     if (!content)
       return '//  Select a file in the dropdown menu to view the source code';
@@ -63,6 +54,20 @@ function SourceCode() {
       console.error('Failed to decode content (source code)', err);
       return '// Oh no! Unable to decode file content.';
     }
+  }
+  function handleFileClick(file) {
+    if (!file?.path) {
+      console.warn('Invalid file selected:', file);
+      return;
+    }
+
+    setCurFile(project, file.path);
+    setShowDropdown(false);
+  }
+  function handleHover(file) {
+    if (file?.type !== 'dir') return;
+
+    setHoveredDir(file);
   }
 
   return (
@@ -87,22 +92,31 @@ function SourceCode() {
           {/* Dropdown menu */}
           {showDropdown && (
             <Wrapper
-              cls={`absolute z-100 top-full right-0 mt-1 flex flex-col w-fit bg-midnight rounded`}
+              cls={`absolute z-100 top-full right-0 mt-1 flex flex-col w-fit bg-midnight rounded font-normal text-sm animate-openDropdown`}
             >
-              <ul className='flex flex-col text-sm gap-1 p-2 cursor-pointer normal-case'>
+              <ul className='flex flex-col gap-1 p-2 cursor-pointer normal-case'>
                 {loadingFiles || fetchingFiles ? (
                   <Spinner />
                 ) : (
                   curFiles.map((file) => (
                     <li
                       key={file.name}
-                      className='flex items-center gap-2 w-full px-1 rounded hover:bg-steel hover:shadow-glow'
+                      className='flex items-center justify-between gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:shadow-glow'
                       onClick={() => handleFileClick(file)}
+                      onMouseEnter={() => handleHover(file)}
+                      onMouseLeave={() => setHoveredDir(null)}
                     >
-                      <span className='material-symbols-outlined text-sm'>
-                        {file.type === 'dir' ? 'folder' : 'code'}
+                      <span className='w-fit'>
+                        <Icon
+                          icon={file.type === 'dir' ? 'folder' : 'code'}
+                          className='text-sm'
+                        />
+                        {file.name}
                       </span>
-                      {file.name}
+
+                      {/* {hoveredDir && hoveredDir === file && ( */}
+                      <Icon icon={'arrow_drop_down'} className='text-sm p-0' />
+                      {/* )} */}
                     </li>
                   ))
                 )}
@@ -127,19 +141,6 @@ function SourceCode() {
             language={getLanguage()}
           />
         )}
-
-        {/* {fileLoading || fileFetching ? (
-          <Spinner />
-        ) : (
-          <Code
-            code={
-              curFile
-                ? decodeContent(curFile.content)
-                : '//  Select a file in the dropdown menu to view the source code'
-            }
-            language={getLanguage()}
-          />
-        )} */}
       </Content>
     </div>
   );
