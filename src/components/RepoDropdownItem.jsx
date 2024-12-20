@@ -20,9 +20,10 @@ function RepoDropdownItem({
       className={`flex flex-col gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:text-lightblue ${
         openDirs.includes(file.sha) ? 'shadow-glow' : 'hover:shadow-glow'
       }`}
-      onClick={() =>
-        file.type === 'file' ? handleFileClick(file) : toggleDir(file)
-      }
+      onClick={(e) => {
+        e.stopPropagation();
+        file.type === 'file' ? handleFileClick(file) : toggleDir(file);
+      }}
       onMouseEnter={() => handleHover(file)}
       onMouseLeave={() => setHoveredDir(null)}
     >

@@ -14,8 +14,8 @@ function SourceCode() {
     getCurProject,
     setCurFile,
     curFile,
-    fileLoading,
-    fileFetching,
+    fetchingFiles,
+    loadingFiles,
     fetchDirData,
   } = useProject();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -61,7 +61,10 @@ function SourceCode() {
   }
   function toggleDir(file) {
     const isOpen = openDirs.includes(file.sha);
-    const isParentDir = curFiles.some((f) => f.sha === file.sha);
+    const isParentDir = curFiles.includes(file);
+
+    // console.log(curFiles);
+    console.log(isParentDir, file.name);
 
     // Root dir is clicked
     if (isParentDir) {
@@ -106,12 +109,11 @@ function SourceCode() {
         toggleDir={toggleDir}
         handleFileClick={handleFileClick}
       >
-        {(openDirs.includes(file.sha) || isOpenRootDir === file) &&
-          file.files && (
-            <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case  rounded'>
-              {renderFiles(file.files)}
-            </ul>
-          )}
+        {file.files && (
+          <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case  rounded'>
+            {renderFiles(file.files)}
+          </ul>
+        )}
       </RepoDropdownItem>
     ));
   }
@@ -123,6 +125,7 @@ function SourceCode() {
       const updatedFile = curFiles.map((f) =>
         f.sha === file.sha ? { ...f, files: fetchedFiles } : f
       );
+      console.log(updatedFile);
 
       setCurFile(updatedFile);
     } catch (err) {
@@ -166,8 +169,8 @@ function SourceCode() {
         cls='w-full max-w-full content min-h-[300px] max-h-5/6 overflow-auto font-mono bg-steel inner-subtle-sm rounded-b'
         padding='p-0 pr-1'
       >
-        {(fileLoading || fileFetching) && <Spinner />}
-        {!fileLoading && !fileFetching && curFile && (
+        {(loadingFiles || fetchingFiles) && <Spinner />}
+        {!loadingFiles && !fetchingFiles && curFile && (
           <Code
             code={
               curFile
