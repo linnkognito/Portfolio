@@ -6,22 +6,22 @@ import Code from './Code';
 import Content from './Content';
 import ActionButton from './ActionButton';
 import Spinner from './Spinner';
-import Icon from './Icon';
-// import ListItems from './ListItems';
+import RepoDropdownItem from './RepoDropdownItem';
 
 function SourceCode() {
   const {
     curFiles,
     getCurProject,
-    loadingFiles,
-    fetchingFiles,
     setCurFile,
     curFile,
     fileLoading,
     fileFetching,
+    fetchDirData,
   } = useProject();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [hoveredDir, setHoveredDir] = useState(null);
+  const [openDirs, setOpenDirs] = useState([]);
+  const [isOpenRootDir, setIsOpenRootDir] = useState(null);
+
   const project = { ...getCurProject, curFiles };
 
   function getLanguage() {
@@ -29,8 +29,6 @@ function SourceCode() {
     if (curFile.name === '.gitignore') return 'plaintext';
 
     const fileType = curFile.name.split('.').at(-1);
-    console.log(curFile);
-    console.log(`file type: ${fileType}`);
 
     const languageMap = {
       js: 'javascript',
@@ -56,22 +54,84 @@ function SourceCode() {
     }
   }
   function handleFileClick(file) {
-    if (!file?.path) {
-      console.warn('Invalid file selected:', file);
-      return;
-    }
+    if (!file?.path) return console.warn('Invalid file selected:', file);
 
     setCurFile(project, file.path);
     setShowDropdown(false);
   }
-  function handleHover(file) {
-    if (file?.type !== 'dir') return;
+  function toggleDir(file) {
+    const isOpen = openDirs.includes(file.sha);
+    const isParentDir = curFiles.some((f) => f.sha === file.sha);
 
-    setHoveredDir(file);
+    // Root dir is clicked
+    if (isParentDir) {
+      if (file === isOpenRootDir) {
+        closeAllDirs();
+        return;
+      }
+      if (file !== isOpenRootDir && openDirs) closeAllDirs();
+
+      openRootDir(file);
+      return;
+    }
+
+    // Nested dir is clicked again
+    if (isOpen) {
+      closeDir(file.sha);
+    } else {
+      openDir(file);
+    }
+  }
+  function openRootDir(file) {
+    setIsOpenRootDir(file);
+    fetchFiles(file);
+  }
+  function openDir(file) {
+    setOpenDirs([...openDirs, file.sha]);
+    fetchFiles(file);
+  }
+  function closeDir(sha) {
+    setOpenDirs((open) => [...open].filter((el) => el !== sha));
+  }
+  function closeAllDirs() {
+    setOpenDirs([]);
+    setIsOpenRootDir(null);
+  }
+  function renderFiles(files) {
+    return files.map((file) => (
+      <RepoDropdownItem
+        key={file.sha}
+        file={file}
+        openDirs={openDirs}
+        toggleDir={toggleDir}
+        handleFileClick={handleFileClick}
+      >
+        {(openDirs.includes(file.sha) || isOpenRootDir === file) &&
+          file.files && (
+            <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case  rounded'>
+              {renderFiles(file.files)}
+            </ul>
+          )}
+      </RepoDropdownItem>
+    ));
+  }
+  async function fetchFiles(file) {
+    try {
+      const fetchedFiles = await fetchDirData(project.repo, file.path);
+      file.files = fetchedFiles;
+
+      const updatedFile = curFiles.map((f) =>
+        f.sha === file.sha ? { ...f, files: fetchedFiles } : f
+      );
+
+      setCurFile(updatedFile);
+    } catch (err) {
+      console.error('Failed to fetch directory contents:', err);
+    }
   }
 
   return (
-    <div className='lg:order-2 order-3 flex flex-col flex-1 bg-midnight shadow-subtle rounded overflow-auto '>
+    <div className='lg:order-2 order-3 flex flex-col flex-1 bg-midnight shadow-subtle rounded overflow-auto'>
       <ActionBar title='Source Code' style='actionbar-h3'>
         <div className='relative flex items-center'>
           <ActionButton
@@ -92,34 +152,10 @@ function SourceCode() {
           {/* Dropdown menu */}
           {showDropdown && (
             <Wrapper
-              cls={`absolute z-100 top-full right-0 mt-1 flex flex-col w-fit bg-midnight rounded font-normal text-sm animate-openDropdown`}
+              cls={`absolute z-100 top-full right-0 mt-1 flex flex-col w-fit min-w-fit max-w-full bg-midnight rounded font-normal text-sm animate-openDropdown`}
             >
-              <ul className='flex flex-col gap-1 p-2 cursor-pointer normal-case'>
-                {loadingFiles || fetchingFiles ? (
-                  <Spinner />
-                ) : (
-                  curFiles.map((file) => (
-                    <li
-                      key={file.name}
-                      className='flex items-center justify-between gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:shadow-glow'
-                      onClick={() => handleFileClick(file)}
-                      onMouseEnter={() => handleHover(file)}
-                      onMouseLeave={() => setHoveredDir(null)}
-                    >
-                      <span className='w-fit'>
-                        <Icon
-                          icon={file.type === 'dir' ? 'folder' : 'code'}
-                          className='text-sm'
-                        />
-                        {file.name}
-                      </span>
-
-                      {/* {hoveredDir && hoveredDir === file && ( */}
-                      <Icon icon={'arrow_drop_down'} className='text-sm p-0' />
-                      {/* )} */}
-                    </li>
-                  ))
-                )}
+              <ul className='flex flex-col gap-1 p-1 cursor-pointer normal-case'>
+                {curFiles && renderFiles(curFiles)}
               </ul>
             </Wrapper>
           )}
@@ -136,7 +172,7 @@ function SourceCode() {
             code={
               curFile
                 ? decodeContent(curFile.content)
-                : '//  Select a file in the dropdown menu to view the source code'
+                : '// Select a file in the dropdown menu to view the source code'
             }
             language={getLanguage()}
           />

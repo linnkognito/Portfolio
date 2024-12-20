@@ -33,7 +33,7 @@
     @apply text-5xl font-extrabold text-shadow-subtle hover:animate-pulse;
   }
   h2 {
-    @apply bg-dove-op pl-4 bg-noise font-semibold text-lg rounded-t;
+    @apply bg-dove-op pl-3 bg-noise font-semibold text-lg rounded-t;
   }
   h3 {
     @apply py-1 pl-4 font-semibold border-b;

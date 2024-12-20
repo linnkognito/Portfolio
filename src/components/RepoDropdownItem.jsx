@@ -1,45 +1,57 @@
-import { Icon } from '@mui/material';
+import Icon from './Icon';
 import { useState } from 'react';
-import useProject from '../contexts/useProject';
 
-function RepoDropdownItem({ key, file, project, setShowDropdown }) {
-  const { setCurFile } = useProject();
+function RepoDropdownItem({
+  children,
+  file,
+  openDirs,
+  handleFileClick,
+  toggleDir,
+}) {
   const [hoveredDir, setHoveredDir] = useState(null);
 
-  function handleFileClick(file) {
-    if (!file?.path) {
-      console.warn('Invalid file selected:', file);
-      return;
-    }
-
-    setCurFile(project, file.path);
-    setShowDropdown(false);
-  }
   function handleHover(file) {
     if (file?.type !== 'dir') return;
-
     setHoveredDir(file);
   }
 
   return (
     <li
-      key={key}
-      className='flex items-center justify-between gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:shadow-glow'
-      onClick={() => handleFileClick(file)}
+      className={`flex flex-col gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:text-lightblue ${
+        openDirs.includes(file.sha) ? 'shadow-glow' : 'hover:shadow-glow'
+      }`}
+      onClick={() =>
+        file.type === 'file' ? handleFileClick(file) : toggleDir(file)
+      }
       onMouseEnter={() => handleHover(file)}
       onMouseLeave={() => setHoveredDir(null)}
     >
-      <span className='w-fit'>
-        <Icon
-          icon={file.type === 'dir' ? 'folder' : 'code'}
-          className='text-sm'
-        />
-        {file.name}
-      </span>
+      <span className='flex justify-between'>
+        <span className='flex w-fit items-center gap-2 '>
+          {hoveredDir && hoveredDir === file ? (
+            <Icon
+              icon={file.type === 'dir' ? 'folder_open' : 'code'}
+              className='text-sm'
+            />
+          ) : (
+            <Icon
+              icon={file.type === 'dir' ? 'folder' : 'code'}
+              className='text-sm text-lightblue'
+            />
+          )}
+          {file.name}
+        </span>
 
-      {hoveredDir && hoveredDir === file && (
-        <Icon icon={'arrow_drop_down'} className='text-sm p-0' />
-      )}
+        {file.type === 'dir' && (
+          <Icon
+            icon={
+              !openDirs.includes(file.sha) ? 'arrow_drop_down' : 'arrow_drop_up'
+            }
+            className='text-sm p-0 hover:animate-pulse'
+          />
+        )}
+      </span>
+      {children}
     </li>
   );
 }

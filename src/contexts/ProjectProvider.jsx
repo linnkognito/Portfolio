@@ -41,6 +41,20 @@ function ProjectProvider({ children }) {
   });
   //________________________________________________//
 
+  async function fetchDirData(repo, path) {
+    try {
+      const data = await queryClient.fetchQuery({
+        queryKey: ['dirContent', path],
+        queryFn: () => fetchProjectData(repo, path),
+      });
+      return data;
+    } catch (err) {
+      console.error('Failed fetching contents of dir', err);
+    }
+  }
+
+  //________________________________________________//
+
   const setCurFile = useCallback(
     async (project, path) => {
       if (!project?.repo || !path) {
@@ -52,11 +66,10 @@ function ProjectProvider({ children }) {
       }
 
       try {
-        const file = await queryClient.fetchQuery({
+        await queryClient.fetchQuery({
           queryKey: ['curFile'],
           queryFn: () => fetchProjectData(project.repo, path),
         });
-        console.log(file);
       } catch (err) {
         console.error('Error setting current file', err);
       }
@@ -92,6 +105,7 @@ function ProjectProvider({ children }) {
         curFile,
         loadingFile,
         fetchingFile,
+        fetchDirData,
       }}
     >
       {children}
