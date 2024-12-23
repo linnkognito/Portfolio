@@ -7,6 +7,7 @@ import Content from './Content';
 import ActionButton from './ActionButton';
 import Spinner from './Spinner';
 import RepoDropdownItem from './RepoDropdownItem';
+import SpinnerListItem from './SpinnerListItem';
 
 function SourceCode() {
   const {
@@ -21,6 +22,7 @@ function SourceCode() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [openDirs, setOpenDirs] = useState([]);
   const [isOpenRootDir, setIsOpenRootDir] = useState(null);
+  const [nestedFilesLoading, setNestedFilesLoading] = useState(false);
 
   const project = { ...getCurProject, curFiles };
 
@@ -64,7 +66,7 @@ function SourceCode() {
     const isParentDir = curFiles.includes(file);
 
     // console.log(curFiles);
-    console.log(isParentDir, file.name);
+    // console.log(isParentDir, file.name);
 
     // Root dir is clicked
     if (isParentDir) {
@@ -94,7 +96,7 @@ function SourceCode() {
     fetchFiles(file);
   }
   function closeDir(sha) {
-    setOpenDirs((open) => [...open].filter((el) => el !== sha));
+    setOpenDirs((open) => [...open].filter((el) => el.sha !== sha));
   }
   function closeAllDirs() {
     setOpenDirs([]);
@@ -110,14 +112,21 @@ function SourceCode() {
         handleFileClick={handleFileClick}
       >
         {file.files && (
-          <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case  rounded'>
-            {renderFiles(file.files)}
+          <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case rounded'>
+            {nestedFilesLoading ? (
+              <li>
+                <SpinnerListItem />
+              </li>
+            ) : (
+              renderFiles(file.files)
+            )}
           </ul>
         )}
       </RepoDropdownItem>
     ));
   }
   async function fetchFiles(file) {
+    setNestedFilesLoading(true);
     try {
       const fetchedFiles = await fetchDirData(project.repo, file.path);
       file.files = fetchedFiles;
@@ -125,11 +134,12 @@ function SourceCode() {
       const updatedFile = curFiles.map((f) =>
         f.sha === file.sha ? { ...f, files: fetchedFiles } : f
       );
-      console.log(updatedFile);
 
       setCurFile(updatedFile);
     } catch (err) {
       console.error('Failed to fetch directory contents:', err);
+    } finally {
+      setNestedFilesLoading(false);
     }
   }
 
