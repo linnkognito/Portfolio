@@ -96,7 +96,7 @@ function SourceCode() {
     fetchFiles(file);
   }
   function closeDir(sha) {
-    setOpenDirs((open) => [...open].filter((el) => el.sha !== sha));
+    setOpenDirs((open) => [...open].filter((el) => el !== sha));
   }
   function closeAllDirs() {
     setOpenDirs([]);
