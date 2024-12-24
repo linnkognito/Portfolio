@@ -36,17 +36,62 @@ function ProjectProvider({ children }) {
     isFetching: fetchingFiles,
   } = useQuery({
     queryKey: ['curFiles', getCurProject?.repo],
-    queryFn: () => fetchProjectData(getCurProject.repo),
+    queryFn: async () => {
+      const files = await fetchProjectData(getCurProject.repo);
+      return files.map((file) =>
+        file.type === 'dir' ? { ...file, isOpen: false } : file
+      );
+    },
     enabled: !!getCurProject?.repo,
   });
+  //________________________________________________//
+
+  async function toggleDir(dir) {
+    const { repo } = getCurProject;
+
+    if (dir.isOpen) {
+      queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
+        oldFiles.map((file) =>
+          file.path === dir.path ? { ...file, isOpen: false } : file
+        )
+      );
+
+      return;
+    }
+
+    // Fetch files if not already fetched
+    if (!dir.files) {
+      try {
+        const fetchedFiles = await fetchDirData(repo, dir.path);
+
+        queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
+          oldFiles.map((file) =>
+            file.path === dir.path
+              ? { ...file, files: fetchedFiles, isOpen: true }
+              : file
+          )
+        );
+      } catch (err) {
+        console.error(`Failed to fetch dir contents (${err})`);
+      }
+    } else {
+      // Mark as open without re-fetching files:
+      queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
+        oldFiles.map((file) =>
+          file.path === dir.path ? { ...file, isOpen: true } : file
+        )
+      );
+    }
+  }
   //________________________________________________//
 
   async function fetchDirData(repo, path) {
     try {
       const data = await queryClient.fetchQuery({
-        queryKey: ['dirContent', path],
-        queryFn: () => fetchProjectData(repo, path),
+        queryKey: ['dirContent', repo, path],
+        queryFn: () => fetchProjectData(repo, path), // Fetch dir data
       });
+
       return data;
     } catch (err) {
       console.error('Failed fetching contents of dir', err);
@@ -106,6 +151,7 @@ function ProjectProvider({ children }) {
         loadingFile,
         fetchingFile,
         fetchDirData,
+        toggleDir,
       }}
     >
       {children}

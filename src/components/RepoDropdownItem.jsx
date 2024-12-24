@@ -1,12 +1,12 @@
 import Icon from './Icon';
 import { useState } from 'react';
+import SpinnerListItem from './SpinnerListItem';
 
 function RepoDropdownItem({
-  children,
   file,
-  openDirs,
   handleFileClick,
   toggleDir,
+  nestedFilesLoading,
 }) {
   const [hoveredDir, setHoveredDir] = useState(null);
 
@@ -18,7 +18,7 @@ function RepoDropdownItem({
   return (
     <li
       className={`flex flex-col gap-2 w-full min-w-full px-1 rounded hover:bg-steel hover:text-lightblue ${
-        openDirs.includes(file.sha) ? 'shadow-glow' : 'hover:shadow-glow'
+        file.isOpen ? 'shadow-glow' : 'hover:shadow-glow'
       }`}
       onClick={(e) => {
         e.stopPropagation();
@@ -45,14 +45,32 @@ function RepoDropdownItem({
 
         {file.type === 'dir' && (
           <Icon
-            icon={
-              !openDirs.includes(file.sha) ? 'arrow_drop_down' : 'arrow_drop_up'
-            }
+            icon={file.isOpen ? 'arrow_drop_down' : 'arrow_drop_up'}
             className='text-sm p-0 hover:animate-pulse'
           />
         )}
       </span>
-      {children}
+
+      {/* Render nested files if the dir is open */}
+      {file.isOpen && file.files && (
+        <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case rounded'>
+          {nestedFilesLoading ? (
+            <li>
+              <SpinnerListItem />
+            </li>
+          ) : (
+            file.files.map((nestedFile) => (
+              <RepoDropdownItem
+                key={nestedFile.sha}
+                file={nestedFile}
+                handleFileClick={handleFileClick}
+                toggleDir={toggleDir}
+                nestedFilesLoading={nestedFilesLoading}
+              />
+            ))
+          )}
+        </ul>
+      )}
     </li>
   );
 }

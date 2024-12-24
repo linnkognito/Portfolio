@@ -5,25 +5,12 @@ import Wrapper from './Wrapper';
 import Code from './Code';
 import Content from './Content';
 import ActionButton from './ActionButton';
-import Spinner from './Spinner';
 import RepoDropdownItem from './RepoDropdownItem';
-import SpinnerListItem from './SpinnerListItem';
 
 function SourceCode() {
-  const {
-    curFiles,
-    getCurProject,
-    setCurFile,
-    curFile,
-    fetchingFiles,
-    loadingFiles,
-    fetchDirData,
-  } = useProject();
+  const { curFiles, getCurProject, setCurFile, curFile, toggleDir } =
+    useProject();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [openDirs, setOpenDirs] = useState([]);
-  const [isOpenRootDir, setIsOpenRootDir] = useState(null);
-  const [nestedFilesLoading, setNestedFilesLoading] = useState(false);
-
   const project = { ...getCurProject, curFiles };
 
   function getLanguage() {
@@ -61,86 +48,15 @@ function SourceCode() {
     setCurFile(project, file.path);
     setShowDropdown(false);
   }
-  function toggleDir(file) {
-    const isOpen = openDirs.includes(file.sha);
-    const isParentDir = curFiles.includes(file);
-
-    // console.log(curFiles);
-    // console.log(isParentDir, file.name);
-
-    // Root dir is clicked
-    if (isParentDir) {
-      if (file === isOpenRootDir) {
-        closeAllDirs();
-        return;
-      }
-      if (file !== isOpenRootDir && openDirs) closeAllDirs();
-
-      openRootDir(file);
-      return;
-    }
-
-    // Nested dir is clicked again
-    if (isOpen) {
-      closeDir(file.sha);
-    } else {
-      openDir(file);
-    }
-  }
-  function openRootDir(file) {
-    setIsOpenRootDir(file);
-    fetchFiles(file);
-  }
-  function openDir(file) {
-    setOpenDirs([...openDirs, file.sha]);
-    fetchFiles(file);
-  }
-  function closeDir(sha) {
-    setOpenDirs((open) => [...open].filter((el) => el !== sha));
-  }
-  function closeAllDirs() {
-    setOpenDirs([]);
-    setIsOpenRootDir(null);
-  }
   function renderFiles(files) {
     return files.map((file) => (
       <RepoDropdownItem
         key={file.sha}
         file={file}
-        openDirs={openDirs}
-        toggleDir={toggleDir}
         handleFileClick={handleFileClick}
-      >
-        {file.files && (
-          <ul className='pl-1 pr-1 mb-1 flex flex-col gap-1 cursor-pointer normal-case rounded'>
-            {nestedFilesLoading ? (
-              <li>
-                <SpinnerListItem />
-              </li>
-            ) : (
-              renderFiles(file.files)
-            )}
-          </ul>
-        )}
-      </RepoDropdownItem>
+        toggleDir={toggleDir}
+      />
     ));
-  }
-  async function fetchFiles(file) {
-    setNestedFilesLoading(true);
-    try {
-      const fetchedFiles = await fetchDirData(project.repo, file.path);
-      file.files = fetchedFiles;
-
-      const updatedFile = curFiles.map((f) =>
-        f.sha === file.sha ? { ...f, files: fetchedFiles } : f
-      );
-
-      setCurFile(updatedFile);
-    } catch (err) {
-      console.error('Failed to fetch directory contents:', err);
-    } finally {
-      setNestedFilesLoading(false);
-    }
   }
 
   return (
@@ -179,8 +95,7 @@ function SourceCode() {
         cls='w-full max-w-full content min-h-[300px] max-h-5/6 overflow-auto font-mono bg-steel inner-subtle-sm rounded-b'
         padding='p-0 pr-1'
       >
-        {(loadingFiles || fetchingFiles) && <Spinner />}
-        {!loadingFiles && !fetchingFiles && curFile && (
+        {curFile && (
           <Code
             code={
               curFile
