@@ -7,7 +7,7 @@ import About from './components/About';
 import Info from './components/Info';
 import Technologies from './components/Technologies';
 import ProjectPreview from './components/ProjectPreview';
-import SourceCode from './components/SourceCode';
+// import SourceCode from './components/SourceCode';
 import Projects from './components/Projects';
 import ProjectSidebar from './components/ProjectSidebar';
 import ProjectDetails from './components/ProjectDetails';
@@ -33,7 +33,7 @@ function App() {
             <ProjectProvider>
               <Projects>
                 <ProjectSidebar>
-                  <SourceCode />
+                  {/* <SourceCode /> */}
                   <ProjectDetails />
                 </ProjectSidebar>
                 <ProjectPreview />

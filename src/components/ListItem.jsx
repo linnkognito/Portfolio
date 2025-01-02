@@ -1,7 +1,6 @@
 import Content from './Content';
 
 function ListItem({
-  key,
   label,
   value,
   uppercase = 'uppercase',
@@ -9,10 +8,7 @@ function ListItem({
   cls = '',
 }) {
   return (
-    <div
-      key={key}
-      className='w-full flex flex-col bg-steel shadow-subtle-sm rounded'
-    >
+    <div className='w-full flex flex-col bg-steel shadow-subtle-sm rounded'>
       {/* L a b e l */}
       <h3 className='text-sm bg-midnight rounded-t'>
         {label}

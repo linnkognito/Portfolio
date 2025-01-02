@@ -49,6 +49,10 @@ function ProjectProvider({ children }) {
   async function toggleDir(dir) {
     const { repo } = getCurProject;
 
+    if (dir.isOpen === undefined) dir.isOpen = false;
+    // console.log(`toggleDir function: ${dir} | ${dir.isOpen}`);
+
+    // Dir is already open
     if (dir.isOpen) {
       queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
         oldFiles.map((file) =>
@@ -64,7 +68,7 @@ function ProjectProvider({ children }) {
       try {
         const fetchedFiles = await fetchDirData(repo, dir.path);
 
-        queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
+        queryClient.setQueryData(['curFiles', repo, dir.path], (oldFiles) =>
           oldFiles.map((file) =>
             file.path === dir.path
               ? { ...file, files: fetchedFiles, isOpen: true }
@@ -76,9 +80,9 @@ function ProjectProvider({ children }) {
       }
     } else {
       // Mark as open without re-fetching files:
-      queryClient.setQueryData(['curFiles', repo], (oldFiles) =>
+      queryClient.setQueryData(['curFiles', repo, dir.path], (oldFiles) =>
         oldFiles.map((file) =>
-          file.path === dir.path ? { ...file, isOpen: true } : file
+          file.path !== dir.path ? { ...file, isOpen: true } : file
         )
       );
     }

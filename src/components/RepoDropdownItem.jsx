@@ -45,7 +45,7 @@ function RepoDropdownItem({
 
         {file.type === 'dir' && (
           <Icon
-            icon={file.isOpen ? 'arrow_drop_down' : 'arrow_drop_up'}
+            icon={!file.isOpen ? 'arrow_drop_down' : 'arrow_drop_up'}
             className='text-sm p-0 hover:animate-pulse'
           />
         )}
