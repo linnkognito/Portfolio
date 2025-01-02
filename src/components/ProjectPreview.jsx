@@ -22,7 +22,7 @@ function ProjectPreview() {
       <ActionBar
         style='actionbar-h3'
         title={`preview${project ? `: ${project.title}` : ''}`}
-        cls='bg-midnight border-b rounded-t'
+        cls='bg-midnight rounded-t'
       >
         <ActionButton pos='left'>Live</ActionButton>
         <ActionButton pos='right' onClick={handleGitHubLink}>

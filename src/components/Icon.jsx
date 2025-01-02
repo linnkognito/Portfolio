@@ -1,8 +1,6 @@
 function Icon({ icon, className = '' }) {
   return (
-    <span className={`material-symbols-outlined ${className}`}>
-      {icon.toLowerCase().trim()}
-    </span>
+    <span className={`material-symbols-outlined ${className}`}>{icon}</span>
   );
 }
 

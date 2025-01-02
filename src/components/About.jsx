@@ -28,15 +28,16 @@ function About() {
             </BorderCorners>
           </Wrapper>
         </Wrapper>
+
         {/* <ContactDetails /> */}
         <Wrapper cls='w-full h-full flex flex-col gap-2 mt-3'>
           <ContactDetails />
         </Wrapper>
 
         {/* Cover letter */}
-        <Wrapper cls='w-full'>
-          <CoverLetter />
-        </Wrapper>
+        {/* <Wrapper cls='w-full'> */}
+        <CoverLetter />
+        {/* </Wrapper> */}
       </Content>
     </Wrapper>
   );

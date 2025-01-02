@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Journey",
+    "isOpen": false,
+    "content": [
+      {
+        "icon": "public",
+        "subTitle": "New beginnings",
+        "text": "I'm born in Sweden & moved to the US in 2017 to build a life with my wonderful partner."
+      },
+      {
+        "icon": "diagonal_line",
+        "subTitle": "Craving change",
+        "text": "After spending 6 years in a visual merchandiser career, I’ve dedicated 40+ hours a week to front & back-end development."
+      },
+      {
+        "icon": "join",
+        "subTitle": "Best of two worlds",
+        "text": "I love how programming challenges both my creativity & logical thinking."
+      }
+    ]
+  },
+  {
+    "title": "Developer values",
+    "isOpen": false,
+    "content": [
+      {
+        "icon": "settings_accessibility",
+        "subTitle": "User first",
+        "text": "The most important thing to me is to ensure a seamless & inclusive user experience. I implement every application feature with the user's needs as the top priority."
+      },
+      {
+        "icon": "developer_mode",
+        "subTitle": "Scalable & clean",
+        "text": " My ambition is to create a seamless & inclusive user experience by implementing every application feature with the user needs as the top priority."
+      },
+      {
+        "icon": "school",
+        "subTitle": "Never stop learning",
+        "text": "Every project is a new opportunity to learn. I like going outside of my comfort zone - it keeps me motivated & helps me grow as a developer."
+      }
+    ]
+  },
+  {
+    "title": "Free time",
+    "isOpen": false,
+    "content": [
+      {
+        "icon": "sailing",
+        "subTitle": "Curious by nature",
+        "text": "I love trying new things - whether it's tasting a dish for the first time, testing out a new JavaScript trick or randomly going on a daytrip to a place I've never been."
+      },
+      {
+        "icon": "palette",
+        "subTitle": "Creative inspirations",
+        "text": "I am & have always been a creative person, finding inspiration in nature, art, design & the occasional thought-provoking discussion. When I'm not coding I'll be sketching, reading books, taking pictures & skiing."
+      }
+    ]
+  }
+]
