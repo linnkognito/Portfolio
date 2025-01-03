@@ -3,9 +3,15 @@ import ActionButton from './ActionButton';
 import Content from './Content';
 import Wrapper from './Wrapper';
 
-function Box({ children, heading = '', actionbar = false, uppercase = true }) {
+function Box({
+  children,
+  heading = '',
+  actionbar = false,
+  uppercase = true,
+  cls = '',
+}) {
   return (
-    <Wrapper cls='w-full shadow-subtle-sm rounded-t'>
+    <Wrapper cls={`w-full shadow-subtle-sm rounded-t ${cls}`}>
       {/* Check for heading options */}
 
       {heading && heading.type === 'h2' && (

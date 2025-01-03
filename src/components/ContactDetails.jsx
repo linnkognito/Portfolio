@@ -12,7 +12,7 @@ const details = [
   { label: 'Speaks', value: 'English & Swedish' },
   {
     label: 'LinkedIn',
-    value: 'link',
+    value: 'Linn ES Johansen',
     url: 'https://www.linkedin.com/in/linn-es-johansen/',
   },
   {

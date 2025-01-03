@@ -13,10 +13,12 @@ function CoverLetter() {
         cls: 'bg-midnight rounded-t',
       }}
       uppercase={false}
+      cls='h-full rounded'
     >
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4 h-full grow rounded'>
         <p>
-          I’m a front-end React developer with a touch of back-end experience.
+          {`Hi, I'm Linn, a front-end React developer with a touch of back-end
+          experience.`}
           <br />
           Welcome to my portfolio!
         </p>

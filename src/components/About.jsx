@@ -2,11 +2,12 @@ import BorderCorners from './BorderCorners';
 import ContactDetails from './ContactDetails';
 import Content from './Content';
 import CoverLetter from './CoverLetter';
+import CurrentStatus from './CurrentStatus';
 import Wrapper from './Wrapper';
 
 function About() {
   return (
-    <Wrapper cls='w-full rounded shadow-subtle-sm bg-steel bg-noise'>
+    <Wrapper cls='flex flex-col h-full w-full rounded shadow-subtle-sm bg-steel bg-noise'>
       {/* Heading */}
       <h2>About</h2>
 
@@ -16,17 +17,20 @@ function About() {
         bg='none'
         cls='flex flex-col gap-4 items-center w-full max-w-full h-fit overflow-x-hidden'
       >
-        {/* Image */}
-        <Wrapper cls='grid md:grid-cols-2 xs:grid-cols-1'>
-          <Wrapper cls='h-full'>
-            <BorderCorners>
-              <img
-                src='/img/pp.jpg'
-                alt='Profile picture'
-                className='w-full rounded shadow-subtle'
-              />
-            </BorderCorners>
-          </Wrapper>
+        {/* Image & Current status */}
+        <Wrapper cls='grid md:grid-cols-2 xs:grid-cols-1 gap-4 h-full'>
+          {/* <Wrapper cls='h-full'> */}
+          <BorderCorners>
+            <img
+              src='/img/pp.jpg'
+              alt='Profile picture'
+              className='w-full rounded shadow-subtle'
+            />
+          </BorderCorners>
+
+          <CurrentStatus />
+
+          {/* </Wrapper> */}
         </Wrapper>
 
         {/* <ContactDetails /> */}
@@ -36,7 +40,7 @@ function About() {
 
         {/* Cover letter */}
         {/* <Wrapper cls='w-full'> */}
-        <CoverLetter />
+        <CoverLetter cls='grow' />
         {/* </Wrapper> */}
       </Content>
     </Wrapper>
