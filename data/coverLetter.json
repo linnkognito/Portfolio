@@ -11,12 +11,12 @@
       {
         "icon": "diagonal_line",
         "subTitle": "Craving change",
-        "text": "I started my programming journey in March 2024, after spending 6 years as a visual merchandiser career on a tight-knit team. Since then, I've dedicated 40+ hours a week to front & back-end development."
+        "text": "I started my programming journey in March 2024, after 6 years as a visual merchandiser. Since then, I've dedicated 40+ hours a week to front & back-end development."
       },
       {
         "icon": "join",
         "subTitle": "Best of two worlds",
-        "text": "What I love the most about programming is how it challenges both my creativity & logical thinking."
+        "text": "To me, the most stimulating aspect of programming is how it encurages both creativity & logical thinking."
       }
     ]
   },
@@ -27,17 +27,17 @@
       {
         "icon": "settings_accessibility",
         "subTitle": "User first",
-        "text": "The most important thing to me is to ensure a seamless & inclusive user experience. I implement every application feature with the user's needs as the top priority."
+        "text": "Creating a seamless & inclusive user experience is my top priority. I implement every application feature with user-first approach."
       },
       {
         "icon": "developer_mode",
         "subTitle": "Scalable & clean",
-        "text": " My ambition is to create a seamless & inclusive user experience by implementing every application feature with the user needs as the top priority."
+        "text": "I want to make life easy for fellow developers by writing clean, reusable & scalable code. The goal is to ensure that every application I build is dynamic, logical & maintainable."
       },
       {
         "icon": "school",
         "subTitle": "Never stop learning",
-        "text": "Every project is a new opportunity to learn. I like going outside of my comfort zone - it keeps me motivated & helps me grow as a developer."
+        "text": "Every project is a new opportunity to learn. I like going outside of my comfort zone - it keeps me motivated & helps me grow."
       }
     ]
   },
@@ -52,8 +52,8 @@
       },
       {
         "icon": "palette",
-        "subTitle": "Creative inspirations",
-        "text": "I am & have always been a creative person, finding inspiration in nature, art, design & the occasional thought-provoking discussion. When I'm not coding I'll be sketching, reading books, taking pictures & skiing."
+        "subTitle": "Inspirations",
+        "text": "I am & have always been a creative person, finding inspiration in nature, art, design & the occasional thought-provoking discussion. When I'm not coding I'll be sketching, reading books, taking pictures or skiing."
       }
     ]
   }

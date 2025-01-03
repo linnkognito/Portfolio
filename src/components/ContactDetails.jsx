@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CustomTooltip from './CustomTooltip';
+import Wrapper from './Wrapper';
 
 const details = [
   { label: 'Name', value: 'Linn Johansen' },
@@ -42,11 +43,11 @@ function ContactDetails() {
   }
 
   return (
-    <>
+    <Wrapper cls='w-full h-full flex flex-col gap-2 mt-3'>
       {details.map((item) => (
         <div
           key={item.label}
-          className='w-full grid grid-cols-[1fr_auto_1fr] items-start gap-2 text-sm uppercase bg-midnight rounded'
+          className='w-full grid grid-cols-[1fr_auto_2fr] items-start gap-2 text-sm uppercase bg-midnight rounded'
         >
           {/* L a b e l */}
           <h5 className='justify-self-end font-semibold text-shadow-glow text-fluid break-words'>
@@ -54,7 +55,7 @@ function ContactDetails() {
           </h5>
 
           {/* S e p a r a t o r */}
-          <span className='mx-2 text-center font-bold text-shadow-subtle text-ice'>
+          <span className='mx-2 text-center font-bold text-shadow-subtle text-lightblue'>
             &rsaquo;
           </span>
 
@@ -62,7 +63,7 @@ function ContactDetails() {
           {item.copy ? (
             <CustomTooltip tooltipOpen={tooltipOpen}>
               <span
-                className={`text-left break-words text-fluid ${
+                className={`pr-2 text-left break-words text-fluid ${
                   item.url || item.copy
                     ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
                     : ''
@@ -87,7 +88,7 @@ function ContactDetails() {
           )}
         </div>
       ))}
-    </>
+    </Wrapper>
   );
 }
 

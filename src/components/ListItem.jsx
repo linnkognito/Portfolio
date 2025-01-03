@@ -18,7 +18,7 @@ function ListItem({
       {/* V a l u e */}
       <Content>
         <div
-          className={`text-justify text-base break-words text-fluid ${uppercase} ${cls} ${
+          className={`text-justify text-base break-words ${uppercase} ${cls} ${
             hover
               ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
               : ''

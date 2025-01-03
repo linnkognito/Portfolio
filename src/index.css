@@ -30,13 +30,13 @@
     @apply font-sans uppercase tracking-widest text-shadow-glow;
   }
   h1 {
-    @apply text-5xl font-extrabold text-shadow-subtle hover:animate-pulse;
+    @apply text-lightblue text-5xl font-extrabold text-shadow-subtle hover:animate-pulse;
   }
   h2 {
-    @apply bg-dove-op pl-3 bg-noise font-semibold text-lg rounded-t;
+    @apply bg-dove-op pl-3 bg-noise font-semibold text-lg  rounded-t;
   }
   h3 {
-    @apply pl-4 font-semibold border-b;
+    @apply pl-4 font-semibold  border-b;
   }
   h4 {
     @apply font-semibold bg-dove-op bg-noise w-fit px-4 rounded-t;

@@ -33,5 +33,10 @@
     "technology": "HTML",
     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     "level": "intermediate"
+  },
+  {
+    "technology": "Photoshop",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+    "level": "intermediate"
   }
 ]

@@ -17,6 +17,7 @@ function ProjectDetails() {
         value={project.description}
         uppercase='normal-case'
         grow='grow'
+        cls='text-lightblue'
       />
       <ListItem
         label={'Tech used'}

@@ -11,7 +11,7 @@ function Box({
   cls = '',
 }) {
   return (
-    <Wrapper cls={`w-full shadow-subtle-sm rounded-t ${cls}`}>
+    <Wrapper cls={`w-full shadow-subtle rounded-t ${cls}`}>
       {/* Check for heading options */}
 
       {heading && heading.type === 'h2' && (
@@ -44,7 +44,8 @@ function Box({
       ) : (
         ''
       )}
-      <div className='max-w-full flex-none shadow-subtle-sm rounded'>
+      {/* <div className='max-w-full flex-none rounded'> */}
+      <div className='max-w-full h-full flex grow rounded'>
         <Content
           cls={`bg-steel inner-subtle rounded-b ${
             uppercase ? 'uppercase' : ''

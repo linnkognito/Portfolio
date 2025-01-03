@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
 import useProject from '../contexts/useProject';
 import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
+// import ActionButton from './ActionButton';
 import BorderCorners from './BorderCorners';
 import Content from './Content';
+import Wrapper from './Wrapper';
 
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();
@@ -19,7 +20,6 @@ function ProjectSlideshow() {
 
   function handleNext() {
     if (lastIndex === projectCount - 1) return setStartIndex(0);
-
     setStartIndex((i) => i + 1);
   }
   function handlePrev() {
@@ -29,12 +29,11 @@ function ProjectSlideshow() {
   function handleClick(project) {
     setCurProject(project);
   }
-
   return (
-    <div className='w-full'>
+    <Wrapper cls='w-full'>
       <ActionBar style='actionbar-h3' title={`Projects (${projectCount})`}>
-        <ActionButton pos='left'>Thumbnails</ActionButton>
-        <ActionButton pos='right'>List</ActionButton>
+        {/* <ActionButton pos='left'>Thumbnails</ActionButton> */}
+        {/* <ActionButton pos='right'>List</ActionButton> */}
       </ActionBar>
 
       <Content cls='flex gap-2 w-full items-center' padding='px-1 py-4'>
@@ -78,7 +77,7 @@ function ProjectSlideshow() {
           chevron_right
         </span>
       </Content>
-    </div>
+    </Wrapper>
   );
 }
 

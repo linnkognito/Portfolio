@@ -4,7 +4,6 @@ import eslint from 'vite-plugin-eslint';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), eslint()],
 

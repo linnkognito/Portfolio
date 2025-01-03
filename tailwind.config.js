@@ -44,27 +44,35 @@ module.exports = {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'center' },
           '100%': { transform: 'scaleX(1)', transformOrigin: 'center' },
         },
+
         scaleFromLeft: {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
           '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
         },
+
         openDropdown: {
           '0%': { transform: 'scaleY(0)', transformOrigin: 'top right' },
           '100%': { transform: 'scaleY(1)', transformOrigin: 'top right' },
         },
+
         closeDropdown: {
           '0%': { transform: 'scaleY(1)', transformOrigin: 'bottom left' },
           '100%': { transform: 'scaleY(0)', transformOrigin: 'bottom left' },
         },
       },
+
       animation: {
         scaleFromCenter: 'scaleFromCenter 0.5s ease-out forwards',
+
         scaleFromLeft: 'scaleFromLeft 0.8s ease-out forwards',
+
         openDropdown: 'openDropdown 0.3s ease-out forwards',
+
         closeDropdown: 'closeDropdown 0.5s ease-out forwards',
       },
     },
   },
+
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
