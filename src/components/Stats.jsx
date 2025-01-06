@@ -6,7 +6,6 @@ const stats = [
   { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '90' },
   { id: uuid(), left: 'solo work', right: 'teamwork', percentage: '60' },
   { id: uuid(), left: 'gives up', right: 'tenacious', percentage: '100' },
-  { id: uuid(), left: 'slow learner', right: 'fast learner', percentage: '85' },
 ];
 
 function Stats() {
@@ -18,21 +17,18 @@ function Stats() {
 
         {/* Statusbar + lables */}
         {stats.map((stat) => (
-          // <div
-          //   key={stat.id}
-          //   className='flex gap-2 items-center w-full max-w-full overflow-hidden'
-          // >
           <div
             key={stat.id}
-            className='grid grid-cols-[1fr_2fr_1fr] items-center w-full max-w-full overflow-hidden text-sm'
+            className='grid grid-cols-[95px_2fr_95px] lg:grid-cols-[80px_2fr_80px] items-center w-full max-w-full overflow-hidden text-sm px-4'
           >
             {/* Left text */}
-            <span className='px-4 py-2 font-semibold text-shadow-subtle uppercase text-fluid'>
+            {/* <span className='pr-4 py-2 font-semibold text-shadow-subtle uppercase text-fluid'> */}
+            <span className='justify-self-start pr-2 py-2 font-semibold text-shadow-subtle uppercase text-base lg:text-fluid'>
               {stat.left}
             </span>
 
             {/* Progress bar */}
-            <span className='relative w-full min-w-1/2 h-4 shadow-subtle rounded bg-dove-op'>
+            <span className='relative w-full h-4 shadow-subtle rounded bg-dove-op'>
               <span
                 style={{ width: `${stat.percentage}%` }}
                 className={`absolute h-4 ${
@@ -43,14 +39,13 @@ function Stats() {
             </span>
 
             {/* Right text */}
-            <span className='px-4 py-2 font-semibold text-shadow-subtle uppercase text-fluid'>
+            {/* <span className='pl-4 py-2 font-semibold text-shadow-subtle uppercase text-fluid'> */}
+            <span className='justify-self-end pl-2 py-2 font-semibold text-shadow-subtle uppercase text-base lg:text-fluid'>
               {stat.right}
             </span>
           </div>
         ))}
       </Content>
-
-      {/* Map */}
     </Wrapper>
   );
 }

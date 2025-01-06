@@ -31,12 +31,26 @@ function Box({
           cls={actionbar.cls || ''}
         >
           {actionbar.btnLeft ? (
-            <ActionButton pos='left'>{actionbar.btnLeft}</ActionButton>
+            <ActionButton
+              pos='left'
+              onClick={actionbar.onClickLeft}
+              alt={actionbar.altLeft}
+              title={actionbar.titleLeft}
+            >
+              {actionbar.btnLeft}
+            </ActionButton>
           ) : (
             ''
           )}
           {actionbar.btnRight ? (
-            <ActionButton pos='right'>{actionbar.btnRight}</ActionButton>
+            <ActionButton
+              pos='right'
+              onClick={actionbar.onClickRight}
+              alt={actionbar.altRight}
+              title={actionbar.titleRight}
+            >
+              {actionbar.btnRight}
+            </ActionButton>
           ) : (
             ''
           )}

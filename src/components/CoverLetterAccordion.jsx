@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import Wrapper from './Wrapper';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
 import Icon from './Icon';
 import AccordionItem from './AccordionItem';
 
-function CoverLetterAccordion({ title, content }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
   return (
     <Wrapper cls='p-0 shadow-subtle-sm rounded'>
       <ActionBar
@@ -16,7 +13,8 @@ function CoverLetterAccordion({ title, content }) {
         cls={`${
           !isOpen ? 'rounded' : 'rounded-t border-b'
         } bg-midnight cursor-pointer hover:shadow-subtle hover:bg-steel transition-all`}
-        onClick={() => setIsOpen((open) => !open)}
+        // onClick={() => setIsOpen((open) => !open)}
+        onClick={setIsOpen}
       >
         <ActionButton
           pos='right'

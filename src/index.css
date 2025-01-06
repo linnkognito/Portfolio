@@ -33,10 +33,10 @@
     @apply text-lightblue text-5xl font-extrabold text-shadow-subtle hover:animate-pulse;
   }
   h2 {
-    @apply bg-dove-op pl-3 bg-noise font-semibold text-lg  rounded-t;
+    @apply bg-dove-op pl-3 bg-noise font-semibold text-lg rounded-t;
   }
   h3 {
-    @apply pl-4 font-semibold  border-b;
+    @apply pl-4 font-semibold border-b;
   }
   h4 {
     @apply font-semibold bg-dove-op bg-noise w-fit px-4 rounded-t;
@@ -98,26 +98,5 @@
 
   .clip-custom {
     clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-  }
-
-  /* S c r o l l b a r */
-  .content::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-  .content::-webkit-scrollbar-thumb {
-    background: rgba(136, 141, 158, 1);
-    border-radius: 10px;
-    border: none;
-  }
-  .content::-webkit-scrollbar-track {
-    background: #0c0c13;
-    border-radius: 10px;
-  }
-  .content::-webkit-scrollbar-thumb:hover {
-    background: #98a4b1;
-  }
-  .content::-webkit-scrollbar-thumb:active {
-    background: #b4c7db;
   }
 }

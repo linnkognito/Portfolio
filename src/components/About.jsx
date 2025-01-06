@@ -1,7 +1,6 @@
 import ContactDetails from './ContactDetails';
 import Content from './Content';
 import CoverLetter from './CoverLetter';
-import CurrentStatus from './CurrentStatus';
 import ProfilePicture from './ProfilePicture';
 import Wrapper from './Wrapper';
 
@@ -15,9 +14,8 @@ function About() {
         bg='none'
         cls='flex flex-col grow gap-6 items-center w-full max-w-full h-fit overflow-x-hidden'
       >
-        <Wrapper cls='grid grid-cols-2 grow-0 gap-4 w-full h-auto items-start'>
+        <Wrapper cls='grid grid-cols-1 grow-0 w-[80%] max-w-[240px] h-auto items-start'>
           <ProfilePicture />
-          <CurrentStatus />
         </Wrapper>
 
         <Wrapper cls='w-full grow-0'>
