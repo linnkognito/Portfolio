@@ -1,5 +1,5 @@
-import Icon from './Icon';
-import Wrapper from './Wrapper';
+import Icon from '../Icon';
+import Wrapper from '../Containers/Wrapper';
 
 function AccordionItem({ icon, subTitle, text }) {
   return (

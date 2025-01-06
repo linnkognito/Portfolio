@@ -1,4 +1,5 @@
-import Content from './Content';
+import Content from './Containers/Content';
+import Wrapper from './Containers/Wrapper';
 
 function ListItem({
   label,
@@ -8,26 +9,19 @@ function ListItem({
   cls = '',
   grow = '',
 }) {
-  return (
-    <div
-      className={`w-full flex flex-col bg-steel shadow-subtle-sm rounded ${grow}`}
-    >
-      {/* L a b e l */}
-      <h3 className='bg-midnight rounded-t'>{label}</h3>
+  const styles = {
+    wrapper: `w-full flex flex-col bg-steel shadow-subtle-sm rounded ${grow}`,
+    heading: 'bg-midnight rounded-t',
+    content: `text-justify text-base break-words ${uppercase} ${cls} ${
+      hover ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse' : ''
+    }`,
+  };
 
-      {/* V a l u e */}
-      <Content>
-        <div
-          className={`text-justify text-base break-words ${uppercase} ${cls} ${
-            hover
-              ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
-              : ''
-          }`}
-        >
-          {value}
-        </div>
-      </Content>
-    </div>
+  return (
+    <Wrapper cls={styles.wrapper}>
+      <h3 className={styles.heading}>{label}</h3>
+      <Content cls={styles.content}>{value}</Content>
+    </Wrapper>
   );
 }
 

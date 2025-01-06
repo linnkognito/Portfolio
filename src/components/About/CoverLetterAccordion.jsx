@@ -1,7 +1,7 @@
-import Wrapper from './Wrapper';
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-import Icon from './Icon';
+import Wrapper from '../Containers/Wrapper';
+import ActionBar from '../ActionBar';
+import ActionButton from '../ActionButton';
+import Icon from '../Icon';
 import AccordionItem from './AccordionItem';
 
 function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
@@ -13,7 +13,6 @@ function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
         cls={`${
           !isOpen ? 'rounded' : 'rounded-t border-b'
         } bg-midnight cursor-pointer hover:shadow-subtle hover:bg-steel transition-all`}
-        // onClick={() => setIsOpen((open) => !open)}
         onClick={setIsOpen}
       >
         <ActionButton

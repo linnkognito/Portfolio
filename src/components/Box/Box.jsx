@@ -1,7 +1,8 @@
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-import Content from './Content';
-import Wrapper from './Wrapper';
+import ActionBar from '../ActionBar';
+import ActionButton from '../ActionButton';
+import Content from '../Containers/Content';
+import Heading from './Heading';
+import Wrapper from '../Containers/Wrapper';
 
 function Box({
   children,
@@ -12,18 +13,10 @@ function Box({
 }) {
   return (
     <Wrapper cls={`w-full shadow-subtle rounded-t ${cls}`}>
-      {/* Check for heading options */}
+      {/* Heading option */}
+      {heading && <Heading type={heading.type} title={heading.title} />}
 
-      {heading && heading.type === 'h2' && (
-        <h2 className='rounded-t'>{heading.title}</h2>
-      )}
-
-      {heading && heading.type === 'h3' && (
-        <h3 className='bg-midnight rounded-t'>{heading.title}</h3>
-      )}
-
-      {/* Check for actionbar options */}
-
+      {/* Actionbar option */}
       {actionbar ? (
         <ActionBar
           style={actionbar.style}
@@ -34,8 +27,8 @@ function Box({
             <ActionButton
               pos='left'
               onClick={actionbar.onClickLeft}
-              alt={actionbar.altLeft}
-              title={actionbar.titleLeft}
+              alt={actionbar.altLeft || ''}
+              title={actionbar.titleLeft || ''}
             >
               {actionbar.btnLeft}
             </ActionButton>
@@ -46,8 +39,8 @@ function Box({
             <ActionButton
               pos='right'
               onClick={actionbar.onClickRight}
-              alt={actionbar.altRight}
-              title={actionbar.titleRight}
+              alt={actionbar.altRight || ''}
+              title={actionbar.titleRight || ''}
             >
               {actionbar.btnRight}
             </ActionButton>
@@ -58,7 +51,7 @@ function Box({
       ) : (
         ''
       )}
-      {/* <div className='max-w-full flex-none rounded'> */}
+
       <div className='max-w-full h-full flex grow rounded'>
         <Content
           cls={`bg-steel inner-subtle rounded-b ${

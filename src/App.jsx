@@ -1,17 +1,19 @@
-import AppContainer from './components/AppContainer';
-import Main from './components/Main';
+import AppContainer from './components/Containers/AppContainer';
 import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 import Section from './components/Section';
+
 import Profile from './components/Profile';
-import About from './components/About';
+import About from './components/About/About';
 import Info from './components/Info';
 import Technologies from './components/Technologies';
-import ProjectPreview from './components/ProjectPreview';
-// import SourceCode from './components/SourceCode';
+
 import Projects from './components/Projects';
 import ProjectSidebar from './components/ProjectSidebar';
 import ProjectDetails from './components/ProjectDetails';
-import Footer from './components/Footer';
+import ProjectPreview from './components/ProjectPreview';
+
 import ProjectProvider from './contexts/ProjectProvider';
 
 function App() {
@@ -33,7 +35,6 @@ function App() {
             <ProjectProvider>
               <Projects>
                 <ProjectSidebar>
-                  {/* <SourceCode /> */}
                   <ProjectDetails />
                 </ProjectSidebar>
                 <ProjectPreview />
@@ -42,6 +43,7 @@ function App() {
           </Section>
         </Main>
       </AppContainer>
+
       <Footer />
     </>
   );

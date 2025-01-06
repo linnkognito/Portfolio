@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import data from '../../data/certificates.json';
-import Box from './Box';
-import Content from './Content';
-import Wrapper from './Wrapper';
+import Box from './Box/Box';
+import Content from './Containers/Content';
+import Wrapper from './Containers/Wrapper';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
 

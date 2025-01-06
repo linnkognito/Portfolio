@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
-module.exports = {
+// module.exports = {
+const config = {
   content: ['./index.html', './src/**/*.{html,js,jsx,ts,tsx}'],
 
   theme: {
@@ -16,13 +17,14 @@ module.exports = {
         ice: '#bdbfc3',
         lightblue: '#b4c7db',
         'lightblue-op': 'rgba(180, 199, 219, 0.6)',
+        'lightblue-xop': 'rgba(180, 199, 219, 0.2)',
       },
       fontFamily: {
         sans: ['Rajdhani', 'Helvetica', 'Arial', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {
-        fluid: 'clamp(0.85rem, 1vw, 1.05rem)',
+        fluid: 'clamp(1rem, 1vw, 1.05rem)',
       },
 
       boxShadow: {
@@ -94,3 +96,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

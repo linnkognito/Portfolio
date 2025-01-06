@@ -1,5 +1,5 @@
 import useProject from '../contexts/useProject';
-import Content from './Content';
+import Content from './Containers/Content';
 import Spinner from './Spinner';
 
 function Projects({ children }) {

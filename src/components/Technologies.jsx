@@ -1,5 +1,5 @@
 import BorderCorners from './BorderCorners';
-import Wrapper from './Wrapper';
+import Wrapper from './Containers/Wrapper';
 import data from '../../data/technologies.json';
 
 function Technologies() {

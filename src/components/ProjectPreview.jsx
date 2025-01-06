@@ -2,7 +2,7 @@ import useProject from '../contexts/useProject';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
 import BorderFrame from './BorderFrame';
-import Content from './Content';
+import Content from './Containers/Content';
 import Spinner from './Spinner';
 import ProjectSlideshow from './ProjectSlideshow';
 

@@ -1,0 +1,33 @@
+[
+  {
+    "label": "Name",
+    "value": "Linn Johansen"
+  },
+  {
+    "label": "DoB",
+    "value": "09/26/1989"
+  },
+  {
+    "label": "Email",
+    "value": "linn . es . johansen [@] gmail . com",
+    "copy": "linn.es.johansen@gmail.com"
+  },
+  {
+    "label": "Speaks",
+    "value": "English & Swedish"
+  },
+  {
+    "label": "LinkedIn",
+    "value": "Linn ES Johansen",
+    "url": "https://www.linkedin.com/in/linn-es-johansen/"
+  },
+  {
+    "label": "GitHub",
+    "value": "linnkognito",
+    "url": "https://github.com/linnkognito"
+  },
+  {
+    "label": "Want",
+    "value": "Full-time & Freelance"
+  }
+]

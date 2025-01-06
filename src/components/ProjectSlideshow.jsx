@@ -3,8 +3,8 @@ import useProject from '../contexts/useProject';
 import ActionBar from './ActionBar';
 // import ActionButton from './ActionButton';
 import BorderCorners from './BorderCorners';
-import Content from './Content';
-import Wrapper from './Wrapper';
+import Content from './Containers/Content';
+import Wrapper from './Containers/Wrapper';
 
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();
