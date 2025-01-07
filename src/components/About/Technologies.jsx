@@ -1,6 +1,6 @@
-import BorderCorners from './BorderCorners';
-import Wrapper from './Containers/Wrapper';
-import data from '../../data/technologies.json';
+import BorderCorners from '../Common/BorderCorners';
+import Wrapper from '../Containers/Wrapper';
+import data from '../../../data/technologies.json';
 
 function Technologies() {
   return (

@@ -1,7 +1,7 @@
 import Wrapper from '../Containers/Wrapper';
-import ActionBar from '../ActionBar';
-import ActionButton from '../ActionButton';
-import Icon from '../Icon';
+import ActionBar from '../Common/ActionBar';
+import ActionButton from '../Common/ActionButton';
+import Icon from '../Common/Icon';
 import AccordionItem from './AccordionItem';
 
 function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {

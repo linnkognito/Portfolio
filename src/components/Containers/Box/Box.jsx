@@ -1,8 +1,8 @@
-import ActionBar from '../ActionBar';
-import ActionButton from '../ActionButton';
-import Content from '../Containers/Content';
+import ActionBar from '../../Common/ActionBar';
+// import ActionButton from '../../Common/ActionButton';
+import Content from '../Content';
 import Heading from './Heading';
-import Wrapper from '../Containers/Wrapper';
+import Wrapper from '../Wrapper';
 
 function Box({
   children,
@@ -17,13 +17,22 @@ function Box({
       {heading && <Heading type={heading.type} title={heading.title} />}
 
       {/* Actionbar option */}
-      {actionbar ? (
+      {actionbar && (
+        <ActionBar
+          style={actionbar.style}
+          title={actionbar.title}
+          cls={actionbar.cls}
+          onClick={actionbar.onClick}
+          buttons={actionbar.buttons}
+        />
+      )}
+      {/* {actionbar ? (
         <ActionBar
           style={actionbar.style}
           title={actionbar.title}
           cls={actionbar.cls || ''}
         >
-          {actionbar.btnLeft ? (
+          {actionbar.btnLeft && (
             <ActionButton
               pos='left'
               onClick={actionbar.onClickLeft}
@@ -32,10 +41,8 @@ function Box({
             >
               {actionbar.btnLeft}
             </ActionButton>
-          ) : (
-            ''
           )}
-          {actionbar.btnRight ? (
+          {actionbar.btnRight && (
             <ActionButton
               pos='right'
               onClick={actionbar.onClickRight}
@@ -44,13 +51,11 @@ function Box({
             >
               {actionbar.btnRight}
             </ActionButton>
-          ) : (
-            ''
           )}
         </ActionBar>
       ) : (
         ''
-      )}
+      )} */}
 
       <div className='max-w-full h-full flex grow rounded'>
         <Content

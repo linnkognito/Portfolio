@@ -1,5 +1,6 @@
 function ActionButton({
   children,
+  value = '',
   pos = '',
   onClick = '',
   cls = '',
@@ -15,7 +16,7 @@ function ActionButton({
       alt={alt}
       title={title}
     >
-      {children}
+      {children || value}
     </button>
   );
 }

@@ -1,18 +1,18 @@
 import AppContainer from './components/Containers/AppContainer';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import Section from './components/Section';
+import Header from './components/Layout/Header';
+import Main from './components/Layout/Main';
+import Footer from './components/Layout/Footer';
+import Section from './components/Containers/Section';
 
-import Profile from './components/Profile';
+import Profile from './components/About/Profile';
 import About from './components/About/About';
-import Info from './components/Info';
-import Technologies from './components/Technologies';
+import Info from './components/About/Info';
+import Technologies from './components/About/Technologies';
 
-import Projects from './components/Projects';
-import ProjectSidebar from './components/ProjectSidebar';
-import ProjectDetails from './components/ProjectDetails';
-import ProjectPreview from './components/ProjectPreview';
+import Projects from './components/Projects/Projects';
+import ProjectSidebar from './components/Projects/ProjectSidebar';
+import ProjectDetails from './components/Projects/ProjectDetails';
+import ProjectPreview from './components/Projects/ProjectPreview';
 
 import ProjectProvider from './contexts/ProjectProvider';
 

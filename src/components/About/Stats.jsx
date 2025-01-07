@@ -1,5 +1,5 @@
-import Content from './Containers/Content';
-import Wrapper from './Containers/Wrapper';
+import Content from '../Containers/Content';
+import Wrapper from '../Containers/Wrapper';
 import { v4 as uuid } from 'uuid';
 
 function Stats() {

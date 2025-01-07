@@ -1,4 +1,4 @@
-import BorderCorners from '../BorderCorners';
+import BorderCorners from '../Common/BorderCorners';
 import Wrapper from '../Containers/Wrapper';
 
 function ProfilePicture() {

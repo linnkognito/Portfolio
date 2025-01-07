@@ -6,9 +6,9 @@ import {
 } from 'react-simple-maps';
 import { feature } from 'topojson-client';
 import worldData from 'world-atlas/land-50m.json';
-import Content from './Containers/Content';
-import BorderCorners from './BorderCorners';
-import Wrapper from './Containers/Wrapper';
+import Content from '../Containers/Content';
+import BorderCorners from '../Common/BorderCorners';
+import Wrapper from '../Containers/Wrapper';
 import { useState } from 'react';
 
 const markers = [

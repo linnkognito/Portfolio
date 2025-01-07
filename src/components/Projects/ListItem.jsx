@@ -1,5 +1,5 @@
-import Content from './Containers/Content';
-import Wrapper from './Containers/Wrapper';
+import Content from '../Containers/Content';
+import Wrapper from '../Containers/Wrapper';
 
 function ListItem({
   label,

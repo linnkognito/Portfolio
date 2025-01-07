@@ -1,5 +1,5 @@
-import useProject from '../contexts/useProject';
-import Content from './Containers/Content';
+import useProject from '../../contexts/useProject';
+import Content from '../Containers/Content';
 import ListItem from './ListItem';
 import TechIcon from './TechIcon';
 

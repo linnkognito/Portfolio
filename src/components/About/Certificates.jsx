@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import data from '../../data/certificates.json';
-import Box from './Box/Box';
-import Content from './Containers/Content';
-import Wrapper from './Containers/Wrapper';
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
+import data from '../../../data/certificates.json';
+import Box from '../Containers/Box/Box';
+import Content from '../Containers/Content';
+import Wrapper from '../Containers/Wrapper';
+import ActionBar from '../Common/ActionBar';
+import ActionButton from '../Common/ActionButton';
 
 function Certificates() {
   const [viewDoc, setViewDoc] = useState(null);

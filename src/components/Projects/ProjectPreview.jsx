@@ -1,9 +1,9 @@
-import useProject from '../contexts/useProject';
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-import BorderFrame from './BorderFrame';
-import Content from './Containers/Content';
-import Spinner from './Spinner';
+import useProject from '../../contexts/useProject';
+import ActionBar from '../Common/ActionBar';
+import ActionButton from '../Common/ActionButton';
+import BorderFrame from '../Common/BorderFrame';
+import Content from '../Containers/Content';
+import Spinner from '../Common/Spinner';
 import ProjectSlideshow from './ProjectSlideshow';
 
 function ProjectPreview() {

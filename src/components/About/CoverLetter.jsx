@@ -3,7 +3,7 @@ import data from '../../../data/coverLetter.json';
 
 import Wrapper from '../Containers/Wrapper';
 import Content from '../Containers/Content';
-import Box from '../Box/Box';
+import Box from '../Containers/Box/Box';
 import CoverLetterAccordion from './CoverLetterAccordion';
 
 function CoverLetter() {
@@ -26,15 +26,23 @@ function CoverLetter() {
   const actionbarObj = {
     style: 'actionbar-h3',
     title: 'Hello world!',
-    btnLeft: '.docx',
-    altLeft: 'Download resume as .docx',
-    titleLeft: 'Download resume as .docx',
-    onClickLeft: () => downloadDoc('doc'),
-    btnRight: '.pdf',
-    altRight: 'Download resume as .pdf',
-    titleRight: 'Download resume as .pdf',
-    onClickRight: () => downloadDoc('pdf'),
     cls: 'bg-midnight rounded-t',
+    buttons: [
+      {
+        pos: 'left',
+        value: '.docx',
+        alt: 'Download resume as .docx',
+        title: 'Download resume as .docx',
+        onClick: () => downloadDoc('doc'),
+      },
+      {
+        pos: 'right',
+        value: '.pdf',
+        alt: 'Download resume as .pdf',
+        title: 'Download resume as .pdf',
+        onClick: () => downloadDoc('pdf'),
+      },
+    ],
   };
 
   const styles = {

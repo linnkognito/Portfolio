@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
-import useProject from '../contexts/useProject';
-import ActionBar from './ActionBar';
+import useProject from '../../contexts/useProject';
+import ActionBar from '../Common/ActionBar';
 // import ActionButton from './ActionButton';
-import BorderCorners from './BorderCorners';
-import Content from './Containers/Content';
-import Wrapper from './Containers/Wrapper';
+import BorderCorners from '../Common/BorderCorners';
+import Content from '../Containers/Content';
+import Wrapper from '../Containers/Wrapper';
 
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();

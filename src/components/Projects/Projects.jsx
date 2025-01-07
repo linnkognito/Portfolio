@@ -1,6 +1,6 @@
-import useProject from '../contexts/useProject';
-import Content from './Containers/Content';
-import Spinner from './Spinner';
+import useProject from '../../contexts/useProject';
+import Content from '../Containers/Content';
+import Spinner from '../Common/Spinner';
 
 function Projects({ children }) {
   const { projects, projectsLoading } = useProject();
