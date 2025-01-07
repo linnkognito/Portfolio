@@ -1,0 +1,16 @@
+[
+  {
+    "pos": { "lat": 45.5051, "lng": -122.675 },
+    "label": "Lives:",
+    "value": "Portland, OR",
+    "location": "Portland, Oregon",
+    "currentCity": true
+  },
+  {
+    "pos": { "lat": 60.5, "lng": 13.5 },
+    "label": "From:",
+    "value": "Stockholm, Sweden",
+    "location": "Sweden",
+    "currentCity": false
+  }
+]
