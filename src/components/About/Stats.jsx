@@ -1,18 +1,13 @@
+import stats from '../../../data/stats';
+
 import Content from '../Containers/Content';
 import Wrapper from '../Containers/Wrapper';
-import { v4 as uuid } from 'uuid';
 
 function Stats() {
-  const stats = [
-    { id: uuid(), left: 'introvert', right: 'extrovert', percentage: '90' },
-    { id: uuid(), left: 'solo work', right: 'teamwork', percentage: '60' },
-    { id: uuid(), left: 'gives up', right: 'tenacious', percentage: '100' },
-  ];
-
   const styles = {
     wrapper: 'flex flex-col gap-2 w-full',
     content: 'rounded shadow-subtle',
-    heading: 'mb-2 bg-midnight rounded-t',
+    heading: 'mb-2',
     statusbarWrapper:
       'grid grid-cols-[95px_2fr_95px] items-center w-full max-w-full overflow-hidden text-sm px-4',
     statTextLeft:

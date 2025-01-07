@@ -29,7 +29,8 @@ function ActionBar({
               >
                 {btn.value}
               </ActionButton>
-            )))}
+            ))) ||
+          ''}
       </div>
     </Wrapper>
   );

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   ComposableMap,
   Geographies,
@@ -6,10 +7,10 @@ import {
 } from 'react-simple-maps';
 import { feature } from 'topojson-client';
 import worldData from 'world-atlas/land-50m.json';
+
 import Content from '../Containers/Content';
 import BorderCorners from '../Common/BorderCorners';
 import Wrapper from '../Containers/Wrapper';
-import { useState } from 'react';
 
 const markers = [
   {
@@ -33,13 +34,7 @@ const geoData = feature(worldData, worldData.objects.land);
 function Map() {
   const [isHovered, setIsHovered] = useState(null);
 
-  function animateMarker(city) {
-    if (isHovered === city.location || (!isHovered && city.currentCity))
-      return true;
-
-    return false;
-  }
-  function showText(city) {
+  function showMarkerEffect(city) {
     if (isHovered === city.location || (!isHovered && city.currentCity))
       return true;
 
@@ -48,7 +43,7 @@ function Map() {
 
   return (
     <div className='realtive w-full h-auto bg-steel rounded shadow-subtle'>
-      <h3 className='bg-midnight rounded-t'>Location</h3>
+      <h3>Location</h3>
       <Wrapper cls='p-4'>
         <BorderCorners padding='p-1'>
           <Content
@@ -95,7 +90,7 @@ function Map() {
                         stroke='#d9d6e0'
                         strokeWidth='2'
                         className={
-                          animateMarker(city)
+                          showMarkerEffect(city)
                             ? 'animate-ping origin-center'
                             : ''
                         }
@@ -103,7 +98,7 @@ function Map() {
                       {/* Inner Static Circle */}
                       <circle cx='12' cy='12' r='4' fill='#d9d6e0' />
 
-                      {showText(city) && (
+                      {showMarkerEffect(city) && (
                         <text
                           dy={17.6}
                           dx={25}
@@ -114,7 +109,9 @@ function Map() {
                             fontWeight: 'bold',
                           }}
                           className={
-                            showText(city) ? 'animate-scaleFromCenter' : ''
+                            showMarkerEffect(city)
+                              ? 'animate-scaleFromCenter'
+                              : ''
                           }
                         >
                           {city.value}

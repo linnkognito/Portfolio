@@ -11,7 +11,6 @@ function ListItem({
 }) {
   const styles = {
     wrapper: `w-full flex flex-col bg-steel shadow-subtle-sm rounded ${grow}`,
-    heading: 'bg-midnight rounded-t',
     content: `text-justify text-base break-words ${uppercase} ${cls} ${
       hover ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse' : ''
     }`,
@@ -19,7 +18,7 @@ function ListItem({
 
   return (
     <Wrapper cls={styles.wrapper}>
-      <h3 className={styles.heading}>{label}</h3>
+      <h3>{label}</h3>
       <Content cls={styles.content}>{value}</Content>
     </Wrapper>
   );

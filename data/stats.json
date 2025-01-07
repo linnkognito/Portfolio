@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "left": "introvert",
+    "right": "extrovert",
+    "percentage": "90"
+  },
+  {
+    "id": "2",
+    "left": "solo work",
+    "right": "teamwork",
+    "percentage": "60"
+  },
+  {
+    "id": "3",
+    "left": "gives up",
+    "right": "tenacious",
+    "percentage": "100"
+  }
+]

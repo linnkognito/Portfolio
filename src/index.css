@@ -18,7 +18,7 @@
     @apply font-semibold tracking-widest text-shadow-glow uppercase;
 
     &:hover {
-      @apply bg-lightblue-xop drop-shadow-glow;
+      @apply bg-dove drop-shadow-glow;
     }
   }
 
@@ -36,7 +36,7 @@
     @apply bg-dove-op pl-3 bg-noise font-semibold text-lg rounded-t;
   }
   h3 {
-    @apply pl-4 font-semibold border-b;
+    @apply pl-4 font-semibold border-b bg-midnight rounded-t;
   }
   h4 {
     @apply font-semibold bg-dove-op bg-noise w-fit px-4 rounded-t;
