@@ -1,5 +1,4 @@
 import ActionBar from '../../Common/ActionBar';
-// import ActionButton from '../../Common/ActionButton';
 import Content from '../Content';
 import Heading from './Heading';
 import Wrapper from '../Wrapper';
@@ -11,8 +10,14 @@ function Box({
   uppercase = true,
   cls = '',
 }) {
+  const styles = {
+    wrapper: `w-full shadow-subtle rounded-t ${cls}`,
+    innerWrapper: 'max-w-full h-full flex grow rounded',
+    content: `bg-steel inner-subtle rounded-b ${uppercase && 'uppercase'}`,
+  };
+
   return (
-    <Wrapper cls={`w-full shadow-subtle rounded-t ${cls}`}>
+    <Wrapper cls={styles.wrapper}>
       {/* Heading option */}
       {heading && <Heading type={heading.type} title={heading.title} />}
 
@@ -26,46 +31,10 @@ function Box({
           buttons={actionbar.buttons}
         />
       )}
-      {/* {actionbar ? (
-        <ActionBar
-          style={actionbar.style}
-          title={actionbar.title}
-          cls={actionbar.cls || ''}
-        >
-          {actionbar.btnLeft && (
-            <ActionButton
-              pos='left'
-              onClick={actionbar.onClickLeft}
-              alt={actionbar.altLeft || ''}
-              title={actionbar.titleLeft || ''}
-            >
-              {actionbar.btnLeft}
-            </ActionButton>
-          )}
-          {actionbar.btnRight && (
-            <ActionButton
-              pos='right'
-              onClick={actionbar.onClickRight}
-              alt={actionbar.altRight || ''}
-              title={actionbar.titleRight || ''}
-            >
-              {actionbar.btnRight}
-            </ActionButton>
-          )}
-        </ActionBar>
-      ) : (
-        ''
-      )} */}
 
-      <div className='max-w-full h-full flex grow rounded'>
-        <Content
-          cls={`bg-steel inner-subtle rounded-b ${
-            uppercase ? 'uppercase' : ''
-          }`}
-        >
-          {children}
-        </Content>
-      </div>
+      <Wrapper cls={styles.innerWrapper}>
+        <Content cls={styles.content}>{children}</Content>
+      </Wrapper>
     </Wrapper>
   );
 }

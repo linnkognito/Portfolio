@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
-import ProjectContext from './ProjectContext';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+
+import ProjectContext from './ProjectContext';
 import projects from '../../data/projects.json';
 import fetchProjectData from '../utils/fetchProjectData';
 
