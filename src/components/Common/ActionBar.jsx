@@ -9,13 +9,15 @@ function ActionBar({
   buttons = [],
   children,
 }) {
+  const styles = {
+    wrapper: `${style} ${cls} w-full flex items-center justify-between uppercase`,
+    center: 'flex items-center',
+  };
+
   return (
-    <Wrapper
-      cls={`${style} ${cls} w-full flex items-center justify-between uppercase`}
-      onClick={onClick}
-    >
-      <div className='flex items-center'>{title}</div>
-      <div className='flex items-center'>
+    <Wrapper cls={styles.wrapper} onClick={onClick}>
+      <div className={styles.center}>{title}</div>
+      <div className={styles.center}>
         {children ||
           (buttons.length &&
             buttons.map((btn, i) => (

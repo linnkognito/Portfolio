@@ -90,7 +90,7 @@ const config = {
           textShadow: '0 0 2px #bdbfc3',
         },
         '.text-shadow-shine': {
-          // textShadow: '0 0 5px #bdbfc3',
+          textShadow: '0 0 5px #bdbfc3',
         },
       });
     },

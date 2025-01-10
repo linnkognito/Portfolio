@@ -20,6 +20,13 @@ function App() {
   return (
     <>
       <AppContainer>
+        {/* <div className='w-8 h-8 flex items-center justify-center shadow-glow rounded'>
+          <p className='font-sans uppercase tracking-widest text-shadow-glow'>
+            LJ
+          </p> */}
+
+        {/* <h5 className='p-0 m-0 m-auto w-full h-full text-center'>PLJ</h5> */}
+        {/* </div> */}
         <Header />
 
         <Main>

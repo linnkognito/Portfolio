@@ -42,7 +42,7 @@
     @apply font-semibold bg-dove-op bg-noise w-fit px-4 rounded-t;
   }
   h5 {
-    @apply font-semibold tracking-widest w-fit px-2  text-shadow-glow;
+    @apply font-semibold tracking-widest w-fit px-2 text-shadow-glow;
   }
 
   ::selection {
@@ -52,9 +52,9 @@
 
 /*___C O M P O N E N T S___________________*/
 @layer components {
-  .section {
+  /* .section {
     @apply w-10/12 min-w-2/3 max-w-2/3;
-  }
+  } */
   .actionbar {
     @apply font-sans uppercase tracking-widest transition-all;
   }
