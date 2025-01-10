@@ -1,19 +1,25 @@
 import Icon from '../Common/Icon';
 import Wrapper from '../Containers/Wrapper';
+import Content from '../Containers/Content';
 
 function AccordionItem({ icon, subTitle, text }) {
-  return (
-    <Wrapper cls='flex gap-2 pr-4 text-justify'>
-      <Icon icon={icon} cls='text-xl ' />
+  const styles = {
+    wrapper: 'flex gap-2 pr-4 text-justify',
+    content: 'flex flex-col',
+    icon: 'text-xl',
+    heading:
+      'mb-2 pl-0 font-semibold text-lightblue text-shadow-subtle uppercase border-b',
+    p: 'text-base',
+  };
 
-      <div className='flex flex-col'>
-        {subTitle && (
-          <h5 className='pl-0 mb-2  font-semibold text-shadow-subtle uppercase border-b text-lightblue'>
-            {subTitle}:
-          </h5>
-        )}
-        <p className='text-base '>{text}</p>
-      </div>
+  return (
+    <Wrapper cls={styles.wrapper}>
+      <Icon icon={icon} cls={styles.icon} />
+
+      <Content padding='0' className={styles.content}>
+        {subTitle && <h5 className={styles.heading}>{subTitle}:</h5>}
+        <p className={styles.p}>{text}</p>
+      </Content>
     </Wrapper>
   );
 }

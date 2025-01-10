@@ -5,7 +5,7 @@
     "repo": "Arrays",
     "hoverTitle": "Array workout",
     "description": "A small Create React App designed for JavaScript beginners that want to practice using array methods. Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "features": ["Context API", "JSON server", "CSS modules"],
+    "features": ["React Router", "Context API", "JSON server", "CSS modules"],
     "image": "/img/array-workout.png",
     "tech": [
       {
