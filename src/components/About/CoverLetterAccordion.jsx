@@ -17,8 +17,13 @@ function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
     onClick: setIsOpen,
   };
 
+  const styles = {
+    wrapper: 'p-0 shadow-subtle-sm rounded',
+    content: 'flex flex-col gap-4 p-4 rounded-b',
+  };
+
   return (
-    <Wrapper cls='p-0 shadow-subtle-sm rounded'>
+    <Wrapper cls={styles.wrapper}>
       <ActionBar
         title={actionbar.title}
         style={actionbar.style}
@@ -36,10 +41,7 @@ function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
         </ActionButton>
       </ActionBar>
 
-      <Content
-        padding='p-0'
-        cls={isOpen && 'flex flex-col gap-4 p-4 rounded-b'}
-      >
+      <Content padding='p-0' cls={isOpen && styles.content}>
         {isOpen &&
           content.map((el) => (
             <AccordionItem

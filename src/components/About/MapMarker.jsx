@@ -16,7 +16,7 @@ function MapMarker({ city, setIsHovered, showMarkerEffect }) {
         height='24'
         viewBox='0 0 24 24'
       >
-        {/* Outer Ping Animation */}
+        {/* Outer ping animation */}
         <circle
           cx='12'
           cy='12'
@@ -26,7 +26,7 @@ function MapMarker({ city, setIsHovered, showMarkerEffect }) {
           strokeWidth='2'
           className={showMarkerEffect(city) ? 'animate-ping origin-center' : ''}
         />
-        {/* Inner Static Circle */}
+        {/* Inner static circle */}
         <circle cx='12' cy='12' r='4' fill='#d9d6e0' />
 
         {showMarkerEffect(city) && (
