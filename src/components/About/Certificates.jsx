@@ -9,19 +9,22 @@ import Filter from '../Common/Filter';
 function Certificates() {
   const [viewDoc, setViewDoc] = useState(null);
 
+  const styles = {
+    box: 'rounded-b overflow-hidden',
+    content: 'grid lg:grid-cols-2 md:grid-cols-1 gap-2',
+    image: 'rounded cursor-zoom-in',
+  };
+
   return (
     <>
-      <Box
-        heading={{ type: 'h3', title: 'certificates' }}
-        cls='rounded-b overflow-hidden'
-      >
-        <Content padding='p2' cls='grid lg:grid-cols-2 md:grid-cols-1 gap-2'>
+      <Box heading={{ type: 'h3', title: 'certificates' }} cls={styles.box}>
+        <Content padding='p2' cls={styles.content}>
           {data.map((cert) => (
             <Filter key={cert.title}>
               <img
                 src={cert.image}
                 alt={`Certificate for: ${cert.course}`}
-                className='rounded cursor-zoom-in'
+                className={styles.image}
                 onClick={() => setViewDoc(cert)}
               />
             </Filter>
