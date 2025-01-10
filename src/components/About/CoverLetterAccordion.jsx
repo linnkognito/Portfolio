@@ -31,7 +31,7 @@ function CoverLetterAccordion({ title, content, isOpen, setIsOpen }) {
         >
           <Icon
             icon={!isOpen ? 'arrow_drop_down' : 'arrow_drop_up'}
-            className='text-base'
+            cls='text-base'
           />
         </ActionButton>
       </ActionBar>

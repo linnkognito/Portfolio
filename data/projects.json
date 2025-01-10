@@ -4,7 +4,8 @@
     "title": "Arrays",
     "repo": "Arrays",
     "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
+    "description": "A small Create React App designed for JavaScript beginners that want to practice using array methods. Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
+    "features": ["Context API", "JSON server", "CSS modules"],
     "image": "/img/array-workout.png",
     "tech": [
       {
@@ -20,7 +21,8 @@
         "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
       }
     ],
-    "github": "https://github.com/linnkognito/Arrays"
+    "github": "https://github.com/linnkognito/Arrays",
+    "live": "https://arrayworkout.netlify.app/"
   },
   {
     "id": "02",

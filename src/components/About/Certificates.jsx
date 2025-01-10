@@ -1,25 +1,13 @@
 import { useState } from 'react';
 import data from '../../../data/certificates.json';
+
 import Box from '../Containers/Box/Box';
 import Content from '../Containers/Content';
-import Wrapper from '../Containers/Wrapper';
-import ActionBar from '../Common/ActionBar';
-import ActionButton from '../Common/ActionButton';
+import PreviewModal from '../Common/PreviewModal';
+import Filter from '../Common/Filter';
 
 function Certificates() {
   const [viewDoc, setViewDoc] = useState(null);
-
-  function handleDocClick() {
-    const i = data.findIndex((doc) => doc.title === viewDoc.title);
-
-    const nextDoc = () => {
-      let next;
-      i >= data.length - 1 ? (next = data[0]) : (next = data[i + 1]);
-      return next;
-    };
-
-    setViewDoc(() => nextDoc());
-  }
 
   return (
     <>
@@ -29,57 +17,21 @@ function Certificates() {
       >
         <Content padding='p2' cls='grid lg:grid-cols-2 md:grid-cols-1 gap-2'>
           {data.map((cert) => (
-            <div
-              key={cert.title}
-              className='relative rounded cursor-zoom-in group'
-              onClick={() => setViewDoc(cert)}
-            >
+            <Filter key={cert.title}>
               <img
-                key={cert.title}
                 src={cert.image}
                 alt={`Certificate for: ${cert.course}`}
                 className='rounded cursor-zoom-in'
                 onClick={() => setViewDoc(cert)}
               />
-              <div className='absolute inset-0 bg-midnight-op opacity-30 bg-grain rounded pointer-events-none group-hover:opacity-0 transition-all'></div>
-            </div>
+            </Filter>
           ))}
         </Content>
       </Box>
 
       {/* Modal */}
       {viewDoc && (
-        <Wrapper
-          cls='fixed flex items-center justify-center w-screen h-screen top-0 left-0 z-50 bg-dove-op'
-          onClick={() => setViewDoc(null)}
-        >
-          <Content
-            padding='p-0'
-            cls='z-100 shadow-dark rounded'
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ActionBar
-              title={`Certificate » ${viewDoc.title}`}
-              style='actionbar-h2'
-              cls='bg-midnight-op'
-            >
-              <ActionButton className=''>
-                <span
-                  className='material-symbols-outlined my-2'
-                  onClick={() => setViewDoc(null)}
-                >
-                  close
-                </span>
-              </ActionButton>
-            </ActionBar>
-            <img
-              src={viewDoc.image}
-              alt={`Certificate for: ${viewDoc.course}`}
-              className='max-w-[70vw] rounded-b'
-              onClick={handleDocClick}
-            />
-          </Content>
-        </Wrapper>
+        <PreviewModal data={data} viewDoc={viewDoc} setViewDoc={setViewDoc} />
       )}
     </>
   );

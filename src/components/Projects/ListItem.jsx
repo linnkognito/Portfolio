@@ -2,8 +2,9 @@ import Content from '../Containers/Content';
 import Wrapper from '../Containers/Wrapper';
 
 function ListItem({
+  children = null,
   label,
-  value,
+  value = null,
   uppercase = 'uppercase',
   hover = false,
   cls = '',
@@ -19,7 +20,7 @@ function ListItem({
   return (
     <Wrapper cls={styles.wrapper}>
       <h3>{label}</h3>
-      <Content cls={styles.content}>{value}</Content>
+      <Content cls={styles.content}>{value || children}</Content>
     </Wrapper>
   );
 }

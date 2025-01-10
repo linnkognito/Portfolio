@@ -4,7 +4,7 @@ import Wrapper from '../Containers/Wrapper';
 function AccordionItem({ icon, subTitle, text }) {
   return (
     <Wrapper cls='flex gap-2 pr-4 text-justify'>
-      <Icon icon={icon} className='text-xl ' />
+      <Icon icon={icon} cls='text-xl ' />
 
       <div className='flex flex-col'>
         {subTitle && (

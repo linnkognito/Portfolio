@@ -5,27 +5,28 @@ import BorderFrame from '../Common/BorderFrame';
 import Content from '../Containers/Content';
 import Spinner from '../Common/Spinner';
 import ProjectSlideshow from './ProjectSlideshow';
+import Wrapper from '../Containers/Wrapper';
 
 function ProjectPreview() {
   const { getCurProject, isProjectLoading } = useProject();
   const project = getCurProject;
 
-  function handleGitHubLink() {
-    if (!project || !project.github) return;
-    console.log(project);
-
-    window.open(project.github, '_blank', 'noopener,noreferrer');
+  function openLink(link) {
+    if (!project || !link) return;
+    window.open(link, '_blank', 'noopener,noreferrer');
   }
 
   return (
-    <div className='lg:order-2 xs:order-1 flex flex-col gap-3 bg-steel shadow-subtle rounded m-1'>
+    <Wrapper cls='lg:order-2 xs:order-1 flex flex-col gap-3 bg-steel shadow-subtle rounded m-1'>
       <ActionBar
         style='actionbar-h3'
         title={`preview${project ? `: ${project.title}` : ''}`}
         cls='bg-midnight rounded-t'
       >
-        <ActionButton pos='left'>Live</ActionButton>
-        <ActionButton pos='right' onClick={handleGitHubLink}>
+        <ActionButton pos='left' onClick={() => openLink(project.live)}>
+          Live
+        </ActionButton>
+        <ActionButton pos='right' onClick={() => openLink(project.github)}>
           GitHub
         </ActionButton>
       </ActionBar>
@@ -44,7 +45,7 @@ function ProjectPreview() {
       </Content>
 
       <ProjectSlideshow />
-    </div>
+    </Wrapper>
   );
 }
 

@@ -1,6 +1,12 @@
-function Icon({ icon, className = '' }) {
+function Icon({ icon, cls = '', ariaLabel = '', onClick = '' }) {
   return (
-    <span className={`material-symbols-outlined ${className}`}>{icon}</span>
+    <span
+      className={`material-symbols-outlined ${cls}`}
+      onClick={onClick}
+      aria-label={ariaLabel}
+    >
+      {icon}
+    </span>
   );
 }
 

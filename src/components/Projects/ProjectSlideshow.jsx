@@ -5,6 +5,7 @@ import ActionBar from '../Common/ActionBar';
 import BorderCorners from '../Common/BorderCorners';
 import Content from '../Containers/Content';
 import Wrapper from '../Containers/Wrapper';
+import Icon from '../Common/Icon';
 
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();
@@ -31,19 +32,15 @@ function ProjectSlideshow() {
   }
   return (
     <Wrapper cls='w-full'>
-      <ActionBar style='actionbar-h3' title={`Projects (${projectCount})`}>
-        {/* <ActionButton pos='left'>Thumbnails</ActionButton> */}
-        {/* <ActionButton pos='right'>List</ActionButton> */}
-      </ActionBar>
+      <ActionBar style='actionbar-h3' title={`Projects (${projectCount})`} />
 
       <Content cls='flex gap-2 w-full items-center' padding='px-1 py-4'>
-        <span
-          className='material-symbols-outlined text-2xl cursor-pointer hover:animate-pulse'
-          aria-label='Go back'
+        <Icon
+          icon='chevron_left'
+          ariaLabel='Go back'
           onClick={handlePrev}
-        >
-          chevron_left
-        </span>
+          cls='text-2xl cursor-pointer hover:animate-pulse'
+        />
 
         <div className='grid grid-cols-4 gap-4'>
           {displayedProjects.map((p, i) => {
@@ -69,13 +66,13 @@ function ProjectSlideshow() {
             );
           })}
         </div>
-        <span
-          className='material-symbols-outlined text-2xl cursor-pointer hover:animate-pulse'
-          aria-label='Go forward'
+
+        <Icon
+          icon='chevron_right'
+          ariaLabel='Go forward'
           onClick={handleNext}
-        >
-          chevron_right
-        </span>
+          cls='text-2xl cursor-pointer hover:animate-pulse'
+        />
       </Content>
     </Wrapper>
   );
