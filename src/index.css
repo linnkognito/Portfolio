@@ -77,4 +77,8 @@
   .clip-custom {
     clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
   }
+
+  .transition-custom {
+    transition: all 0.2s ease-in-out;
+  }
 }

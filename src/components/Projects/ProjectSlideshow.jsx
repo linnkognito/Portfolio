@@ -10,6 +10,7 @@ import Icon from '../Common/Icon';
 function ProjectSlideshow() {
   const { projects, setCurProject } = useProject();
   const [startIndex, setStartIndex] = useState(0);
+  const [hovered, setHovered] = useState(null);
 
   let lastIndex = startIndex + 3;
   const projectCount = projects.length;
@@ -30,6 +31,7 @@ function ProjectSlideshow() {
   function handleClick(project) {
     setCurProject(project);
   }
+
   return (
     <Wrapper cls='w-full'>
       <ActionBar style='actionbar-h3' title={`Projects (${projectCount})`} />
@@ -54,13 +56,40 @@ function ProjectSlideshow() {
                   cornerH='h-3'
                   border='border'
                   rounded='rounded-sm'
-                  cls='h-full overflow-hidden shadow-subtle-sm hover:shadow-glow'
+                  cls='h-full overflow-hidden shadow-subtle-sm hover:filter hover:shadow-glow'
                 >
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className='object-cover object-top w-full h-full shadow-subtle-sm rounded-sm cursor-pointer'
-                  />
+                  <div
+                    className='relative h-full w-full group cursor-pointer transition-all duration-500'
+                    onMouseEnter={() => setHovered(p)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    {/* Image */}
+                    <div className='relative h-full w-full hover:blur-[1px] transition-all duration-500'>
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className='object-cover object-top w-full h-full shadow-subtle-sm rounded-sm z-10'
+                      />
+                    </div>
+
+                    <>
+                      {/* Filter */}
+                      <div
+                        className={`absolute top-0 w-full h-full bg-midnight z-20 ${
+                          hovered === p ? 'opacity-70' : 'opacity-0'
+                        } transition-all duration-200`}
+                      ></div>
+
+                      {/* Title */}
+                      <h5
+                        className={`absolute top-0 flex items-center justify-center w-full h-full px-2 z-30 break-words text-offwhite text-center text-shadow-glow ${
+                          hovered === p ? 'opacity-100' : 'opacity-0'
+                        } transition-all duration-200`}
+                      >
+                        {p.title}
+                      </h5>
+                    </>
+                  </div>
                 </BorderCorners>
               </div>
             );
