@@ -2,9 +2,11 @@
   {
     "id": "01",
     "title": "Arrays",
-    "repo": "Arrays",
-    "hoverTitle": "Array workout",
-    "description": "A small Create React App designed for JavaScript beginners that want to practice using array methods. Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
+    "hoverTitle": "Arrays",
+    "description": [
+      "A small Create React App designed for JavaScript beginners that want to practice using array methods.",
+      "Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills."
+    ],
     "features": ["React Router", "Context API", "JSON server", "CSS modules"],
     "image": "/img/array-workout.png",
     "tech": [
@@ -26,83 +28,74 @@
   },
   {
     "id": "02",
-    "title": "Test",
-    "hoverTitle": "Test project",
-    "description": "Test description",
-    "image": "/img/array-workout2.png",
+    "title": "Course work: Natours",
+    "hoverTitle": "Natours",
+    "description": [
+      "Natours is the biggest and final project of Jonas Schmedtmann's node.js course.",
+      "This application taught me about a wide range of backend related development skills, including JWT-based authentication, role-based access control, protected routes, advanced Express error handling, and data modeling with MongoDB and Mongoose.",
+      "It also features server-side rendering with Pug, a simulated payment system using Stripe & email functionality integrated with Brevo.",
+      "This project was a great learning experience for me, as I adapted to outdated libraries and features, which greatly improved my problem-solving skills."
+    ],
+    "features": [
+      "MongoDB",
+      "Mongoose",
+      "Atlas",
+      "MongoDB Compass",
+      "Express",
+      "Stripe | Payments",
+      "Brevo | Email handler",
+      "Postman | API testing an debugging"
+    ],
+    "image": "/img/natours.png",
     "tech": [
       {
-        "technology": "React.js",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        "technology": "Node.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
       },
       {
         "technology": "JavaScript",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
       },
       {
-        "technology": "Node.js",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-        "level": "beginner"
+        "technology": "Pug",
+        "icon": "https://camo.githubusercontent.com/5cdfb20caa55e8f5833718e752040101adc9567ddf5a8bbfac98fc75fcee531e/68747470733a2f2f63646e2e7261776769742e636f6d2f7075676a732f7075672d6c6f676f2f656563343336636565386664396431373236643738333963626539396431663639343639326330632f5356472f7075672d66696e616c2d6c6f676f2d5f2d636f6c6f75722d3132382e737667"
       },
       {
-        "technology": "Tailwind",
-        "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+        "technology": "CSS",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
       }
     ],
-    "github": "https://github.com/linnkognito/arrays"
+    "github": "https://github.com/linnkognito/Natours",
+    "live": "https://natours-314n.onrender.com/"
   },
   {
     "id": "03",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
-  },
-  {
-    "id": "04",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout2.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
-  },
-  {
-    "id": "05",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
-  },
-  {
-    "id": "06",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout2.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
-  },
-  {
-    "id": "07",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
-  },
-  {
-    "id": "08",
-    "title": "Array workout",
-    "hoverTitle": "Array workout",
-    "description": "A small app designed for JavaScript beginners that want to practice using array methods. Originially designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills.",
-    "image": "/img/array-workout-last.png",
-    "tech": ["React", "JavaScript", "Tailwind CSS"],
-    "github": "https://github.com/linnkognito/arrays"
+    "title": "Course work: Forkify",
+    "hoverTitle": "Forkify",
+    "description": [
+      "A recipe site that fetches external recipe data based on the user's search input.",
+      "Forkify is the final project of Jonas Schmedtmann's JavaScript course."
+    ],
+    "features": [
+      "MVC architecture",
+      "API requests",
+      "ES6 Classes",
+      "Search function ",
+      "Bookmarks"
+    ],
+    "image": "/img/forkify.png",
+    "tech": [
+      {
+        "technology": "JavaScript",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "technology": "Sass",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+        "level": "beginner"
+      }
+    ],
+    "github": "https://github.com/linnkognito/forkify",
+    "live": "https://jscourse-forkify.netlify.app/"
   }
 ]

@@ -86,7 +86,7 @@ function ProjectSlideshow() {
                           hovered === p ? 'opacity-100' : 'opacity-0'
                         } transition-all duration-200`}
                       >
-                        {p.title}
+                        {p.hoverTitle}
                       </h5>
                     </>
                   </div>

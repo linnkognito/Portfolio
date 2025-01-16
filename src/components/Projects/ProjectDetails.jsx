@@ -10,7 +10,7 @@ function ProjectDetails() {
   const styles = {
     content:
       'lg:order-1 order-1 flex flex-col gap-3 max-w-full h-full rounded uppercase items-stretch',
-    description: 'text-lightblue',
+    description: 'flex flex-col gap-5 leading-5 text-lightblue',
     tech: 'flex gap-2 grow-0',
   };
 
@@ -18,11 +18,17 @@ function ProjectDetails() {
     <Content padding='p-0' cls={styles.content}>
       <ListItem
         label='Description'
-        value={project.description}
         uppercase='normal-case'
         grow='grow'
         cls={styles.description}
-      />
+      >
+        {project.description?.map((paragraph, i) => (
+          <>
+            <p key={i}>{paragraph}</p>
+          </>
+        ))}
+      </ListItem>
+
       {project.features && (
         <ListItem label='Features' uppercase='normal-case'>
           {project.features.map((feature, i) => (

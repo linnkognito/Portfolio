@@ -20,7 +20,7 @@ function ProjectPreview() {
     <Wrapper cls='lg:order-2 xs:order-1 flex flex-col gap-3 bg-steel shadow-subtle rounded m-1'>
       <ActionBar
         style='actionbar-h3'
-        title={`preview${project ? `: ${project.title}` : ''}`}
+        title={project?.title || 'Preview'}
         cls='bg-midnight rounded-t'
       >
         <ActionButton pos='left' onClick={() => openLink(project.live)}>

@@ -30,7 +30,12 @@ function ContactDetails() {
     label:
       'justify-self-end font-semibold text-shadow-glow text-fluid break-words',
     separator: 'mx-2 text-center font-bold text-shadow-subtle text-lightblue',
-    value: 'text-left break-words text-fluid',
+    value: (item) =>
+      `text-left break-words text-fluid ${
+        item.url
+          ? 'cursor-pointer hover:text-shadow-shine hover:animate-pulse'
+          : ''
+      }`,
     valueCopyable: (item) =>
       `pr-2 text-left break-words text-fluid ${
         item.url || item.copy
@@ -62,7 +67,7 @@ function ContactDetails() {
               </CustomTooltip>
             ) : (
               <span
-                className={styles.value}
+                className={styles.value(item)}
                 aria-label={item.url ? `${item.url}` : ''}
                 onClick={() => handleClick(item)}
               >
