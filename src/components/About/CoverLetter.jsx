@@ -15,8 +15,8 @@ function CoverLetter() {
 
   function downloadDoc(fileFormat) {
     const resumeFiles = {
-      doc: '../../public/docs/Resume_Linn_Johansen_2025.docx',
-      pdf: '../../public/docs/Resume_Linn_Johansen_2025.pdf',
+      doc: '/docs/Resume_Linn_Johansen_2025.docx',
+      pdf: '/docs/Resume_Linn_Johansen_2025.pdf',
     };
 
     if (fileFormat === 'doc') window.open(resumeFiles.doc, '_blank');
