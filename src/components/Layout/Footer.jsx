@@ -2,6 +2,7 @@ function Footer() {
   function handleClick() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
   return (
     <footer className='flex w-full justify-between px-4 py-2 mt-10 mb-0 bg-steel bg-noise border-t border-offwhite-op'>
       <div className='p-0 hover:cursor-pointer' onClick={handleClick}>
