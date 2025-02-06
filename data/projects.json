@@ -1,13 +1,48 @@
 [
   {
     "id": "01",
+    "title": "Morningstar",
+    "hoverTitle": "Morningstar",
+    "description": [
+      "A fully responsive web application for a fake online clothing store, designed by me.",
+      "Uses an API I built myself for fetching product data.",
+      "Scales nicely from mobile devices up to large screens.",
+      "",
+      "🔨This project is currently under construction"
+    ],
+    "features": [
+      "Redux Toolkit",
+      "React Router",
+      "Express API",
+      "MongoDB database"
+    ],
+    "image": "/img/morningstar.png",
+    "tech": [
+      {
+        "technology": "React.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      },
+      {
+        "technology": "Node.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+      },
+      {
+        "technology": "Tailwind",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+      }
+    ],
+    "github": "https://github.com/linnkognito/Morningstar",
+    "live": "https://shop-morningstar.netlify.app/"
+  },
+  {
+    "id": "02",
     "title": "Arrays",
     "hoverTitle": "Arrays",
     "description": [
       "A small Create React App designed for JavaScript beginners that want to practice using array methods.",
       "Originally designed for a friend, as a way for them to have more fun with their programming studies, as well as a way for me to practice my React skills."
     ],
-    "features": ["React Router", "Context API", "JSON server", "CSS modules"],
+    "features": ["React Router", "Context API", "CSS modules"],
     "image": "/img/array-workout.png",
     "tech": [
       {
@@ -27,7 +62,7 @@
     "live": "https://arrayworkout.netlify.app/"
   },
   {
-    "id": "02",
+    "id": "03",
     "title": "Course work: Natours",
     "hoverTitle": "Natours",
     "description": [
@@ -69,7 +104,7 @@
     "live": "https://natours-314n.onrender.com/"
   },
   {
-    "id": "03",
+    "id": "04",
     "title": "Course work: Forkify",
     "hoverTitle": "Forkify",
     "description": [

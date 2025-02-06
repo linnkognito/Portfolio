@@ -38,7 +38,7 @@ function ProjectPreview() {
             <img
               src={project.image}
               alt={`Preview image for the ${project.title} application.`}
-              className='shadow-subtle-sm rounded'
+              className='shadow-subtle-sm rounded max-h-[344px]'
             />
           )}
         </BorderFrame>
