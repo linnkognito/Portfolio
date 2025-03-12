@@ -13,7 +13,7 @@ function TechIcon({ icon, technology }) {
       <img
         src={icon}
         alt={`${technology} logo`}
-        className='min-w-7'
+        className='w-[28px]'
         title={technology}
       />
     </BorderCorners>

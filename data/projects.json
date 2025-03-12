@@ -1,14 +1,40 @@
 [
   {
     "id": "01",
+    "title": "Portfolio Template",
+    "hoverTitle": "Portfolio",
+    "description": [
+      "Single-page template intended to showcase what a custom creative portfolio built by me could potentially look like.",
+      "Built with React & Tailwind CSS, this website scales nicely from mobile devices up to large screens.",
+      "The text & image content of this site is easily added & updated through Sanity.io (headless CMS)."
+    ],
+    "features": ["Monorepo", "Sanity Studio (headless CMS)"],
+    "image": "/img/portfolio-mockup.png",
+    "tech": [
+      {
+        "technology": "React.js",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      },
+      {
+        "technology": "Sanity",
+        "icon": "https://www.sanity.io/static/images/favicons/apple-icon-180x180.png"
+      },
+      {
+        "technology": "Tailwind",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+      }
+    ],
+    "github": "https://github.com/linnkognito/",
+    "live": "https://demo-creativeportfolio.netlify.app/"
+  },
+  {
+    "id": "02",
     "title": "Morningstar",
     "hoverTitle": "Morningstar",
     "description": [
       "A fully responsive web application for a fake online clothing store, designed by me.",
       "Uses an API I built myself for fetching product data.",
-      "Scales nicely from mobile devices up to large screens.",
-      "",
-      "🔨This project is currently under construction"
+      "Scales nicely from mobile devices up to large screens."
     ],
     "features": [
       "Redux Toolkit",
@@ -35,7 +61,7 @@
     "live": "https://shop-morningstar.netlify.app/"
   },
   {
-    "id": "02",
+    "id": "03",
     "title": "Arrays",
     "hoverTitle": "Arrays",
     "description": [
@@ -62,7 +88,7 @@
     "live": "https://arrayworkout.netlify.app/"
   },
   {
-    "id": "03",
+    "id": "04",
     "title": "Course work: Natours",
     "hoverTitle": "Natours",
     "description": [
@@ -104,7 +130,7 @@
     "live": "https://natours-314n.onrender.com/"
   },
   {
-    "id": "04",
+    "id": "05",
     "title": "Course work: Forkify",
     "hoverTitle": "Forkify",
     "description": [
